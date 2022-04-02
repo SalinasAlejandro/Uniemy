@@ -56,6 +56,12 @@ export default class CreateCoursePage extends Component {
                 toast.success('Curso editado con éxito');
             } else {
                 await axios.post('http://localhost:4000/api/courses/', newCourse);
+                this.setState({
+                    title: '',
+                    image: '',
+                    description: '',
+                    price: ''
+                });
                 toast.success('Curso creado con éxito');
                 //window.location.href = routes.createLevel;
             }

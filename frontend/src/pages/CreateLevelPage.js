@@ -56,6 +56,12 @@ export default class CreateLevelPage extends Component {
                 toast.success('Curso editado con éxito');
             } else {
                 const level = await axios.post('http://localhost:4000/api/levels/', newLevel);
+                this.setState({
+                    title: '',
+                    video: '',
+                    description: '',
+                    course: 'no'
+                });
                 toast.success('Nivel creado con éxito');
                 //window.location.href = `/levels/level/${level.data.data.id_}`;
             }

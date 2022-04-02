@@ -32,32 +32,30 @@ export default function appRouter() {
             </Route>
 
 
-            <Route exact path={routes.certificate} element={<PrivateRoute />}>
-                <Route path={routes.certificate} element={<CertificatePages />} />
-            </Route>
-            <Route exact path={routes.course()} element={<PrivateRoute />}>
-                <Route path={routes.course()} element={<CoursePage />} />
-            </Route>
-            <Route exact path={routes.createCourse} element={<PrivateRoute hasRole={roles.Escuela} />}>
-                <Route path={routes.createCourse} element={<CreateCoursePage />} />
-            </Route>
-            <Route exact path={routes.editCourse()} element={<PrivateRoute hasRole={roles.Escuela} />}>
-                <Route path={routes.editCourse()} element={<CreateCoursePage />} />
-            </Route>
-            <Route exact path={routes.level()} element={<PrivateRoute />}>
-                <Route path={routes.level()} element={<LevelPage />} />
-            </Route>
-            <Route exact path={routes.createLevel} element={<PrivateRoute hasRole={roles.Escuela} />}>
-                <Route path={routes.createLevel} element={<CreateLevelPage />} />
-            </Route>
-            <Route exact path={routes.editLevel()} element={<PrivateRoute hasRole={roles.Escuela} />}>
-                <Route path={routes.editLevel()} element={<CreateLevelPage />} />
-            </Route>
-            <Route exact path={routes.profile} element={<PrivateRoute />}>
-                <Route path={routes.profile} element={<UserPage />} />
-            </Route>
+            <Route path={routes.certificate} element={<CertificatePages />} />
+
+            <Route path={routes.course()} element={<CoursePage />} />
+
+            <Route path={routes.createCourse} element={<CreateCoursePage />} />
+
+            <Route path={routes.editCourse()} element={<CreateCoursePage />} />
+
+            <Route path={routes.level()} element={<LevelPage />} />
+
+            <Route path={routes.createLevel} element={<CreateLevelPage />} />
+
+            <Route path={routes.editLevel()} element={<CreateLevelPage />} />
+
+            <Route path={routes.profile} element={<UserPage />} />
 
             <Route path='*' element={<NotFoundPages />} />
         </Routes>
     )
 }
+
+
+/*
+            <Route exact path={routes.certificate} element={<PrivateRoute />}>
+                <Route path={routes.certificate} element={<CertificatePages />} />
+            </Route>
+*/
