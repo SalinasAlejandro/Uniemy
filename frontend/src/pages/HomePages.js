@@ -7,10 +7,10 @@ export default class HomePages extends Component {
     render() {
         return (
             <div className='Paginicio'>
-            
-            <InicioCarrusel/>
-            <Card/>
-            
+
+                <InicioCarrusel />
+                <Card />
+
             </div>
         )
     }

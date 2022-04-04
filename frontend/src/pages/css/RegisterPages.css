@@ -6,8 +6,8 @@
     margin: auto auto;
     width: 25%;
 }
-.Textregistrar
-{
+
+.Textregistrar {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,24 +22,24 @@
     background-color: rgb(52, 58, 64);
 }
 
-.btnr
-{
+.btnr {
     margin-left: 25%;
     padding: auto;
     margin-top: 5%;
     margin-bottom: 5%;
     background-color: #082a4d;
     color: #ebe07e;
-    border: none; 
+    border: none;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 15px;
     -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px; 
+    border-radius: 5px 5px 5px 5px;
 }
-.btnr:hover{
+
+.btnr:hover {
     background-color: #ebe07e;
     color: #0c3dc2;
 }

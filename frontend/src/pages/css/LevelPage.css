@@ -8,6 +8,7 @@
     position: relative;
     color: #ebe07e;
 }
+
 .finalizarCurso {
     background: transparent;
     -webkit-transition: all 0.2s;
@@ -33,27 +34,26 @@
     color: #222;
 }
 
-.video
-{
+.video {
     margin-left: 33%;
 }
 
-.btnN
-{
-  
+.btnN {
+
     padding: auto;
     margin-left: 80%;
     background-color: #212529;
     color: #ebe07e;
-    border: none; 
+    border: none;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 15px;
     -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px; 
+    border-radius: 5px 5px 5px 5px;
 }
-.btnN:hover{
+
+.btnN:hover {
     color: #c2b00c;
 }

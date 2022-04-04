@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import routes from '../helpers/routes';
 import "./css/CreateCoursePage.css"
+import { BtnN } from './Componentes/stylesComponents';
 
 export default class CreateCoursePage extends Component {
 
@@ -116,10 +116,7 @@ export default class CreateCoursePage extends Component {
                     </div>
 
                     <form onSubmit={this.onSubmit}>
-
-                        <button type='submit' className='btnn'>
-                            Guardar
-                        </button>
+                        <BtnN>{'Guardar'}</BtnN>
                     </form>
 
 

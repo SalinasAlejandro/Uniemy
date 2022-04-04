@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import routes from '../helpers/routes';
+import { BtnN } from './Componentes/stylesComponents';
 
 export default class CreateLevelPage extends Component {
 
@@ -106,7 +107,7 @@ export default class CreateLevelPage extends Component {
 
 
             <div className="col-md-6 offset-md-3">
-                <div className="card card-body"  id='tarjeta'>
+                <div className="card card-body" id='tarjeta'>
                     <h4>Crear un nivel</h4>
 
                     <div className="form-group">
@@ -147,9 +148,7 @@ export default class CreateLevelPage extends Component {
 
                     <form onSubmit={this.onSubmit}>
 
-                        <button type='submit' className='btnn'>
-                            Guardar
-                        </button>
+                        <BtnN>{'Guardar'}</BtnN>
                     </form>
 
 

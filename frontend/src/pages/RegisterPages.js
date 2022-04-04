@@ -36,87 +36,87 @@ export default function RegisterPages() {
 
     return (
         <Container>
-            
-        <div id="formC">
-        <div>
-            <img  src={ require('../pages/img/logo.png')} className="icon"/>
-                <h1 className='Textregistrar'>Registrarse</h1>
+
+            <div id="formC">
+                <div>
+                    <img src={require('../pages/img/logo.png')} className="icon" />
+                    <h1 className='Textregistrar'>Registrarse</h1>
+                </div>
+                <Row>
+                    <Col sm={{ span: 4, offset: 4 }}>
+                        <Form onSubmit={handleSubmit(onSubmit)}>
+
+                            <Form.Group>
+                                <Form.Label className='Text'>Nombre</Form.Label>
+                                <Form.Control
+                                    placeholder='Escriba su nombre'
+                                    {...register('name')}
+                                    type='text'
+                                />
+                                {errors?.name && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.name.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className='Text'>Correo</Form.Label>
+                                <Form.Control
+                                    placeholder='Escriba su correo'
+                                    {...register('email')}
+                                    type='email'
+                                />
+                                {errors?.email && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.email.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className='Text'>Nueva Contraseña</Form.Label>
+                                <Form.Control
+                                    placeholder='Escriba su nueva Contraseña'
+                                    {...register('password')}
+                                    type='password'
+                                />
+                                {errors?.password && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.password.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className='Text'>Tipo</Form.Label>
+                                <Form.Control
+                                    as="select"
+                                    {...register('type')}
+                                >
+                                    <option>Seleccione el tipo de cuenta</option>
+                                    {Object.keys(roles).map(role => (
+                                        <option key={role}>{role}</option>
+                                    ))}
+                                </Form.Control>
+                                {errors?.type && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.type.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+
+                            <Button className='btnr' onClick={handleSubmit(onSubmit)}>Registrarse</Button>
+
+                        </Form>
+                    </Col>
+                </Row>
             </div>
-            <Row>
-                <Col sm={{ span: 4, offset: 4 }}>
-                    <Form onSubmit={handleSubmit(onSubmit)}>
-
-                        <Form.Group>
-                            <Form.Label className='Text'>Nombre</Form.Label>
-                            <Form.Control
-                                placeholder='Escriba su nombre'
-                                {...register('name')}
-                                type='text'
-                            />
-                            {errors?.name && (
-                                <Form.Text>
-                                    <Alert variant='danger'>
-                                        {errors.name.message}
-                                    </Alert>
-                                </Form.Text>
-                            )}
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label className='Text'>Correo</Form.Label>
-                            <Form.Control
-                                placeholder='Escriba su correo'
-                                {...register('email')}
-                                type='email'
-                            />
-                            {errors?.email && (
-                                <Form.Text>
-                                    <Alert variant='danger'>
-                                        {errors.email.message}
-                                    </Alert>
-                                </Form.Text>
-                            )}
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label className='Text'>Nueva Contraseña</Form.Label>
-                            <Form.Control
-                                placeholder='Escriba su nueva Contraseña'
-                                {...register('password')}
-                                type='password'
-                            />
-                            {errors?.password && (
-                                <Form.Text>
-                                    <Alert variant='danger'>
-                                        {errors.password.message}
-                                    </Alert>
-                                </Form.Text>
-                            )}
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label className='Text'>Tipo</Form.Label>
-                            <Form.Control
-                                as="select"
-                                {...register('type')}
-                            >
-                                <option>Seleccione el tipo de cuenta</option>
-                                {Object.keys(roles).map(role => (
-                                    <option key={role}>{role}</option>
-                                ))}
-                            </Form.Control>
-                            {errors?.type && (
-                                <Form.Text>
-                                    <Alert variant='danger'>
-                                        {errors.type.message}
-                                    </Alert>
-                                </Form.Text>
-                            )}
-                        </Form.Group>
-
-                        <Button  className='btnr'  onClick={handleSubmit(onSubmit)}>Registrarse</Button>
-
-                    </Form>
-                </Col>
-            </Row>
-        </div>
 
         </Container>
     )
