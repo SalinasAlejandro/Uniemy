@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import routes from '../helpers/routes';
+import "./css/CreateCoursePage.css"
 
 export default class CreateCoursePage extends Component {
 
@@ -73,7 +74,7 @@ export default class CreateCoursePage extends Component {
 
         if (this.state.title == '') {
             todoBien = false;
-            toast.error('Ingrese Un título')
+            toast.error('Ingrese un título')
         }
         if (this.state.image == '') {
             todoBien = false;
@@ -92,31 +93,31 @@ export default class CreateCoursePage extends Component {
 
 
             <div className="col-md-6 offset-md-3">
-                <div className="card card-body">
+                <div className="card card-body" id='tarjeta'>
                     <h4>Crear un curso</h4>
 
                     <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Title' id='title' name='title' required
+                        <input type="text" className='form-control' placeholder='Título del Curso' id='title' name='title' required
                             value={this.state.title}
                             onChange={this.onInputChange} />
                     </div>
 
                     <div className="form-group">
-                        <textarea name="description" className='form-control' placeholder='description' required
+                        <textarea name="description" className='form-control' placeholder='Descripción del Curso' required
                             value={this.state.description}
                             onChange={this.onInputChange}></textarea>
                     </div>
 
 
                     <div className="form-group">
-                        <input type="text" className='form-control' placeholder='image' name='image' required
+                        <input type="text" className='form-control' placeholder='Imagen' name='image' required
                             value={this.state.image}
                             onChange={this.onInputChange} />
                     </div>
 
                     <form onSubmit={this.onSubmit}>
 
-                        <button type='submit' className='btn btn-primary'>
+                        <button type='submit' className='btnn'>
                             Guardar
                         </button>
                     </form>

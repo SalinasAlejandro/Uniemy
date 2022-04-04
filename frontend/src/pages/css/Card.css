@@ -1,0 +1,28 @@
+.tituloSeccion {
+    margin-top: 2%;
+    background: #2f3336;
+    padding: 10px 25px 15px;
+    font-size: 2em;
+    font-weight: 700;
+    margin-right: auto;
+    position: relative;
+    color: #ebe07e;
+}
+.container{
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+#curso{
+    margin-bottom: 2%;
+    background-color: #30383f;
+    color: #ebe07e;
+}
+.card-title{
+    color: aliceblue;
+    background-color: #005f9d;
+    
+}
+

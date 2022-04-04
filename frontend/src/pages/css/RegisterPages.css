@@ -1,0 +1,45 @@
+.icon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto auto;
+    width: 25%;
+}
+.Textregistrar
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: whitesmoke;
+}
+
+#formC {
+    margin-top: 3%;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    background-color: rgb(52, 58, 64);
+}
+
+.btnr
+{
+    margin-left: 25%;
+    padding: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #082a4d;
+    color: #ebe07e;
+    border: none; 
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; 
+}
+.btnr:hover{
+    background-color: #ebe07e;
+    color: #0c3dc2;
+}

@@ -1,0 +1,24 @@
+#tarjeta{
+    margin-top: 5%;
+    background-color: #2f3336;
+    color: #ebe07e;
+}
+.btnn
+{
+    margin-top: 1.5%;
+    padding: auto;
+    margin-left: 42%;
+    background-color: #ebe07e;
+    color: #212529;
+    border: none; 
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; 
+}
+.form-group{
+    margin-top: 1%;
+}

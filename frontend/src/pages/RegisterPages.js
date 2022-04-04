@@ -6,6 +6,7 @@ import UserAccountResolver from './../validations/UserResolver';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import routes from '../helpers/routes';
+import "./css/RegisterPages.css"
 
 export default function RegisterPages() {
 
@@ -35,12 +36,18 @@ export default function RegisterPages() {
 
     return (
         <Container>
+            
+        <div id="formC">
+        <div>
+            <img  src={ require('../pages/img/logo.png')} className="icon"/>
+                <h1 className='Textregistrar'>Registrarse</h1>
+            </div>
             <Row>
                 <Col sm={{ span: 4, offset: 4 }}>
                     <Form onSubmit={handleSubmit(onSubmit)}>
 
                         <Form.Group>
-                            <Form.Label>Nombre</Form.Label>
+                            <Form.Label className='Text'>Nombre</Form.Label>
                             <Form.Control
                                 placeholder='Escriba su nombre'
                                 {...register('name')}
@@ -55,7 +62,7 @@ export default function RegisterPages() {
                             )}
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Correo</Form.Label>
+                            <Form.Label className='Text'>Correo</Form.Label>
                             <Form.Control
                                 placeholder='Escriba su correo'
                                 {...register('email')}
@@ -70,7 +77,7 @@ export default function RegisterPages() {
                             )}
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Nueva Contraseña</Form.Label>
+                            <Form.Label className='Text'>Nueva Contraseña</Form.Label>
                             <Form.Control
                                 placeholder='Escriba su nueva Contraseña'
                                 {...register('password')}
@@ -85,7 +92,7 @@ export default function RegisterPages() {
                             )}
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Tipo</Form.Label>
+                            <Form.Label className='Text'>Tipo</Form.Label>
                             <Form.Control
                                 as="select"
                                 {...register('type')}
@@ -104,11 +111,13 @@ export default function RegisterPages() {
                             )}
                         </Form.Group>
 
-                        <Button variant="primary" onClick={handleSubmit(onSubmit)}>Registrarse</Button>
+                        <Button  className='btnr'  onClick={handleSubmit(onSubmit)}>Registrarse</Button>
 
                     </Form>
                 </Col>
             </Row>
+        </div>
+
         </Container>
     )
 

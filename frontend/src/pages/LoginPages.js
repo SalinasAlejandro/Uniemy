@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAuth from '../auth/useAuth';
 import { useLocation } from 'react-router-dom';
+import "./css/LoginPages.css"
 
 export default function LoginPages() {
 
@@ -26,11 +27,18 @@ export default function LoginPages() {
     return (
         <Container>
             <Row>
-                <Col sm={{ span: 4, offset: 4 }}>
+            <div className="wrapper">
+        <div id="formContent">
+            <div>
+            <img  src={ require('../pages/img/logo.png')} className="icon"/>
+                <h1 className='Textiniciar'>Iniciar Sesión</h1>
+            </div>
+
+            <Col sm={{ span: 4, offset: 4 }}>
                     <Form onSubmit={handleSubmit(onSubmit)}>
 
                         <Form.Group>
-                            <Form.Label>Correo</Form.Label>
+                            <Form.Label className='Text'>Correo Electrónico</Form.Label>
                             <Form.Control
                                 placeholder='Escriba su correo'
                                 {...register('email')}
@@ -45,7 +53,7 @@ export default function LoginPages() {
                             )}
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Label className='Text'>Contraseña</Form.Label>
                             <Form.Control
                                 placeholder='Escriba su Contraseña'
                                 {...register('password')}
@@ -53,10 +61,18 @@ export default function LoginPages() {
                             />
                         </Form.Group>
 
-                        <Button variant="primary" onClick={handleSubmit(onSubmit)}>Ingresar</Button>
+                        <Button className='btni' onClick={handleSubmit(onSubmit)}>Ingresar</Button>
 
                     </Form>
                 </Col>
+
+            <div>
+                <a className="registro" href="register">¿No tiene cuenta? Registrese</a>
+            </div>
+            </div>
+        </div>
+   
+               
             </Row>
         </Container>
     )

@@ -1,0 +1,59 @@
+.tituloSeccionN {
+    margin-top: -3.45%;
+    background: #2f3336;
+    padding: 10px 25px 15px;
+    font-size: 2em;
+    font-weight: 700;
+    margin-right: auto;
+    position: relative;
+    color: #ebe07e;
+}
+.finalizarCurso {
+    background: transparent;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    border: solid 1px #888;
+    color: #e6a1a4;
+    padding: 0;
+    height: 45px;
+    line-height: 45px;
+    cursor: pointer;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    outline: none;
+    display: block;
+    font-family: Roboto, Sans-Serif;
+    width: 100%;
+}
+
+.finalizarCurso:hover {
+    background: #dc0914;
+    border: solid 1px #222;
+    color: #222;
+}
+
+.video
+{
+    margin-left: 33%;
+}
+
+.btnN
+{
+  
+    padding: auto;
+    margin-left: 80%;
+    background-color: #212529;
+    color: #ebe07e;
+    border: none; 
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; 
+}
+.btnN:hover{
+    color: #c2b00c;
+}

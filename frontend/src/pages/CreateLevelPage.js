@@ -106,7 +106,7 @@ export default class CreateLevelPage extends Component {
 
 
             <div className="col-md-6 offset-md-3">
-                <div className="card card-body">
+                <div className="card card-body"  id='tarjeta'>
                     <h4>Crear un nivel</h4>
 
                     <div className="form-group">
@@ -127,13 +127,13 @@ export default class CreateLevelPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Title' id='Título del nivel' name='title' required
+                        <input type="text" className='form-control' placeholder='Título del Nivel' id='Título del nivel' name='title' required
                             value={this.state.title}
                             onChange={this.onInputChange} />
                     </div>
 
                     <div className="form-group">
-                        <textarea name="description" className='form-control' placeholder='Descripción del nivel' required
+                        <textarea name="description" className='form-control' placeholder='Descripción del Nivel' required
                             value={this.state.description}
                             onChange={this.onInputChange}></textarea>
                     </div>
@@ -147,7 +147,7 @@ export default class CreateLevelPage extends Component {
 
                     <form onSubmit={this.onSubmit}>
 
-                        <button type='submit' className='btn btn-primary'>
+                        <button type='submit' className='btnn'>
                             Guardar
                         </button>
                     </form>

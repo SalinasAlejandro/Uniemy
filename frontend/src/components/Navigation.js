@@ -4,18 +4,21 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
 import routes from '../helpers/routes';
 import roles from './../helpers/roles';
-
+import "../pages/css/Navbar.css"
 export default function Navigation() {
 
     const { isLogged, logout, user } = useAuth();
 
     return (
-        <Navbar collapseOnSelect expand='lg' variant='dark' bg='dark'>
-            <Navbar.Brand as={NavLink} to="/">Unidemy</Navbar.Brand>
+        <Navbar collapseOnSelect expand='lg' variant='dark' className='navbarpropio'>
+            <Navbar.Brand as={NavLink} to="/"> <img  src={ require('../pages/img/logo.png')} className="logo"/></Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav' className='mr-auto'>
+                 <Nav>
+                    <Nav.Link as={NavLink}to="/">Inicio</Nav.Link>
+                </Nav>
                 <Nav>
-                    <Nav.Link as={NavLink} to={routes.courses}>Bliblioteca</Nav.Link>
+                    <Nav.Link as={NavLink} to={routes.courses}>Biblioteca</Nav.Link>
                 </Nav>
                 {!isLogged() ? (
                     <Nav >
