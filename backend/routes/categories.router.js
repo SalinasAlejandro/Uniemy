@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const categories = await service.findDB(size || 10, filter);
+    const categories = await service.findDB(size || 100, filter);
     res.json({
       'success': true,
       'message': 'Estos son las categorías encontradas',
-      'Data': categories
+      'data': categories
     });
   } catch (error) {
     next(error);

@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const purchases = await service.findDB(size || 10, filter);
+    const purchases = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son las compras encontrados',
-      'Data': purchases
+      'data': purchases
     });
   } catch (error) {
     next(error);
@@ -42,6 +42,36 @@ router.get('/:idPurchases', validatorHandler(getPurchasesId, 'params'), async (r
     res.json({
       'success': true,
       'message': 'Compra encontrada',
+      'data': purchase
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET PURCHASE BY USER
+router.get('/purchases/:idUser', async (req, res, next) => {
+  try {
+    const { idUser } = req.params;
+    const purchases = await service.findPurchasesByUser(idUser);
+    res.json({
+      'success': true,
+      'message': 'Compras encontradas',
+      'data': purchases
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET PURCHASE BY USER AND COURSE
+router.post('/getPurchase', async (req, res, next) => {
+  try {
+    const body = req.body;
+    const purchase = await service.getPruchaseUserCourse(body);
+    res.json({
+      'success': true,
+      'message': 'Concidencia encontrada',
       'data': purchase
     });
   } catch (error) {

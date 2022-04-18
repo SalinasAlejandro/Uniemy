@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const users = await service.findDB(size || 10, filter);
+    const users = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son los registros encontrados',
-      'Data': users
+      'data': users
     });
   } catch (error) {
     next(error);
@@ -72,7 +72,7 @@ router.patch('/:id', validatorHandler(getUserId, 'params'), validatorHandler(upd
       const { old, changed } = await service.updateDB(id, body);
       res.json({
         'success': true,
-        'message': 'Se ha actuzaliado con éxito',
+        'message': 'Se ha actualizado con éxito',
         'data': {
           "original": old,
           "Modificado": changed

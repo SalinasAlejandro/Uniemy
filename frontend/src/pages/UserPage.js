@@ -1,52 +1,166 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
+import roles from '../helpers/roles';
+import routes from '../helpers/routes';
 import useModal from '../hooks/useModal';
+import DeleteModal from './Modals/DeleteModal';
+import EditModal from './Modals/EditModal';
+import ProfilePicModal from './Modals/ProfilePicModal';
 
 export default function UserPage() {
 
     const { user } = useAuth();
 
     const [isOpenDeleteModal, openDeleteModal, closeDeleteModal] = useModal();
-    const [isOpenChangePasswordModal, openChangePasswordModal, closeChangePasswordModal] = useModal();
     const [isOpenEditModal, openEditModal, closeEditModal] = useModal();
     const [isOpenProfilePicModal, openProfilePicModal, closeProfilePicModal] = useModal();
 
-    return (<>
-        <Container>
-            <Row className='mt-4'>
-                <Col>
-                    <img
-                        src={user?.avatar || "/img/avatar.svg"}
-                        alt="Profile"
-                        onClick={openProfilePicModal}
-                        style={{
-                            width: '200px',
-                            height: '200px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            cursor: 'pointer'
-                        }} />
-                </Col>
-                <Col className='mt-4'>
-                    <Card style={{ maxWidth: '360px' }} className='mx-auto p-4'>
-                        <p className='text-center'> <b>Nombre: </b> {user.name} </p>
-                        <p className='text-center'> <b>Correo: </b> {user.email} </p>
-                        <p className='text-center'> <b>Rol: </b> {user.type === 0 ? 'Estudiante' : 'Escuela'} </p>
+    const [listcourses, setListCourses] = useState(false);
 
-                        <Button variant="warning" onClick={openEditModal}>
-                            Editar Cuenta
-                        </Button>
-                        <Button variant="link" className='mt-1' onClick={openChangePasswordModal}>
-                            Cambiar contraseña
-                        </Button>
-                        <Button variant="link" className='mt-3 text-danger' onClick={openDeleteModal}>
-                            Eliminar Cuenta
-                        </Button>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    </>
+    useEffect(() => {
+        function getCourses() {
+            if (user.type === roles.Escuela)
+                getCoursesEscuela();
+            else
+                getCoursesEstudiante();
+        }
+
+        getCourses();
+    }, []);
+
+    const getCoursesEscuela = async () => {
+        const res = await fetch(`http://localhost:4000/api/courses/school/${localStorage.getItem('_id')}`);
+        const infCourses = await res.json();
+        if (infCourses.data.length > 0) {
+            setListCourses(infCourses.data);
+        }
+    }
+
+    const getCoursesEstudiante = async () => {
+        const res = await fetch(`http://localhost:4000/api/purchases/purchases/${localStorage.getItem('_id')}`);
+        const infCourses = await res.json();
+        if (infCourses.data.length > 0) {
+            setListCourses(infCourses.data);
+        }
+    }
+
+    return (
+        <>
+            <Container>
+                <Row className='mt-4'>
+                    <Col>
+                        <img
+                            src={user?.avatar || "/img/avatar.svg"}
+                            alt="Profile"
+                            style={{
+                                width: '200px',
+                                height: '200px',
+                                borderRadius: '50%',
+                                objectFit: 'cover'
+                            }} />
+                    </Col>
+                    <Col className='mt-4'>
+                        <Card style={{ maxWidth: '360px' }} className='mx-auto p-4'>
+                            <p className='text-center'> <b>Nombre: </b> {user.name} </p>
+                            <p className='text-center'> <b>Correo: </b> {user.email} </p>
+                            <p className='text-center'> <b>Rol: </b> {user.type === 0 ? 'Estudiante' : 'Escuela'} </p>
+
+                            <Button variant="warning" onClick={openEditModal}>
+                                Editar Cuenta
+                            </Button>
+                            <Button variant="link" className='mt-1' onClick={openProfilePicModal}>
+                                Cambiar Foto de Perfil
+                            </Button>
+                            <Button variant="link" className='mt-3 text-danger' onClick={openDeleteModal}>
+                                Eliminar Cuenta
+                            </Button>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+
+            {
+                user.type === roles.Escuela ? (
+
+                    <>
+                        <h2>Cursos Creados</h2>
+                        {
+                            listcourses === false ? (
+                                <h4>No hay cursos creados</h4>
+                            ) : (
+                                <Row xs={1} md={2} lg={3} className="g-4">
+                                    {
+                                        listcourses.map(course => (
+                                            <Col>
+                                                <Card>
+                                                    <Card.Img variant="top" src={course.image} />
+                                                    <Card.Body>
+                                                        <Card.Title>{course.title}</Card.Title>
+                                                        <Link to={routes.course(course._id)}>
+                                                            <Button variant="primary">Ver Curso</Button>
+                                                        </Link>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
+                                        ))
+                                    }
+                                </Row>
+                            )
+                        }
+                    </>
+
+                ) : (
+
+                    <>
+                        <h2>Cursos Comprados</h2>
+                        {
+                            listcourses === false ? (
+                                <h4>No hay cursos comprados</h4>
+                            ) : (
+                                <Row xs={1} md={2} lg={3} className="g-4">
+                                    {
+                                        listcourses.map(course => (
+                                            <Col>
+                                                <Card>
+                                                    <Card.Img variant="top" src={course.imageCourse} />
+                                                    <Card.Body>
+                                                        <Card.Title>{course.titleCourse}</Card.Title>
+                                                        <Link to={routes.course(course.course)}>
+                                                            <Button variant="primary">Ver Curso</Button>
+                                                        </Link>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
+                                        ))
+                                    }
+                                </Row>
+                            )
+                        }
+                    </>
+
+                )
+            }
+
+
+            <EditModal
+                isOpen={isOpenEditModal}
+                close={closeEditModal}
+                user={user}
+            />
+
+            <ProfilePicModal
+                isOpen={isOpenProfilePicModal}
+                close={closeProfilePicModal}
+                user={user}
+            />
+
+            <DeleteModal
+                isOpen={isOpenDeleteModal}
+                close={closeDeleteModal}
+            />
+
+        </>
     );
 }

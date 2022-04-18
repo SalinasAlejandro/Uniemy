@@ -1,160 +1,246 @@
-import React, { Component } from 'react'
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import routes from '../helpers/routes';
 import { BtnN } from './Componentes/stylesComponents';
+import LevelCreateResolver from '../validations/LevelCreateResolver';
+import { useForm } from 'react-hook-form';
+import { Alert, Form } from 'react-bootstrap';
+import axios from 'axios';
 
-export default class CreateLevelPage extends Component {
+export default function CreateLevelPage() {
 
-    state = {
-        title: '',
-        video: '',
-        description: '',
-        number: 1,
-        course: '',
-        courses: [],
-        editing: false,
-        _id: ''
-    }
+    const [infoLevel, setInfoLevel] = useState();
+    const [isEditing, setIsEditing] = useState();
+    const [isOwner, setIsOwner] = useState();
+    const [courses, setCourses] = useState();
+    const [courseParent, setCourseParent] = useState();
 
-    async componentDidMount() {
-        const ruta = window.location.pathname.split('/');
-        if (ruta.length > 3) {
-            //Editar Nivel
-            this.state.editing = true;
-        } else {
-            const res = await axios.get('http://localhost:4000/api/courses/');
-            this.setState({
-                courses: res.data.Data.map(user => user),
-                course: res.data.Data[0].title
-            })
+    const { register, setValue, handleSubmit, formState: { errors }, reset } = useForm({ resolver: LevelCreateResolver });
+
+
+    useEffect(() => {
+        async function fetchData() {
+            let urlElements = window.location.pathname.split('/');
+            if (urlElements.length !== 4) {
+                setIsEditing(false);
+                setIsOwner(true);
+                const id = localStorage.getItem("_id");
+                const res = await axios.get(`http://localhost:4000/api/courses/school/${id}`);
+
+                if (res.data.data.length > 0)
+                    setCourses(res.data.data.map(courses => courses));
+            } else {
+                setIsEditing(true);
+                const res = await fetch(`http://localhost:4000/api/levels/${urlElements[3]}`);
+                const infLevel = await res.json();
+
+                setInfoLevel(infLevel.data);
+                setIsOwner(infLevel.data.school === localStorage.getItem('_id'));
+
+                setValue('course', infLevel.data.course);
+                setValue('title', infLevel.data.title);
+                setValue('description', infLevel.data.description);
+                setValue('video', infLevel.data.video);
+            }
+
         }
+        fetchData();
+    }, []);
+
+    const onSelectChange = e => {
+        setCourseParent(e.target.value);
     }
 
-    onInputChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
+
+    const onSubmit = (formData) => {
+        if (isOwner === true) {
+            if (isEditing === false) {
+                creatingLevel(formData);
+            } else {
+                editingLevel(formData);
+            }
+        }
+    };
+
+    const creatingLevel = async (formData) => {
+
+        toast.promise(async () => {
+
+            const resCourse = await fetch(`http://localhost:4000/api/courses/${courseParent}`);
+            const existCourse = await resCourse.json();
+
+            if (existCourse.success !== true) {
+                toast.error('Seleccione un curso válido');
+                return;
+            }
+
+            const resLevels = await fetch(`http://localhost:4000/api/levels/course/${courseParent}`);
+            const hasLevels = await resLevels.json();
+
+            formData.number = (hasLevels.data.length + 1);
+            formData.school = localStorage.getItem('_id');
+
+            const res = await fetch('http://localhost:4000/api/levels/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const isCreated = await res.json();
+
+            if (isCreated.success !== true) {
+                toast.error(isCreated.message);
+            } else {
+                toast.success(isCreated.message);
+                setCourseParent(null);
+                reset();
+            }
+
+        }, {
+            pending: 'Creando nivel...'
+        });
+
+    }
+
+    const editingLevel = async (formData) => {
+        toast.promise(async () => {
+
+            const levelEdited = {
+                title: formData.title,
+                video: formData.video,
+                description: formData.description,
+                number: infoLevel.number,
+                course: formData.course,
+            }
+
+            const res = await fetch(`http://localhost:4000/api/levels/${infoLevel._id}`, {
+                method: 'PATCH',
+                body: JSON.stringify(levelEdited),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const isEdited = await res.json();
+
+            if (isEdited.success !== true) {
+                toast.error(isEdited.message);
+            } else {
+                toast.success(isEdited.message);
+            }
+
+        }, {
+            pending: 'Editando Nivel...'
         });
     }
 
-    onSelectChange = e => {
-        console.log(e.target.value);
-    }
+    return (
 
-    onSubmit = async (e) => {
-        e.preventDefault();
+        <div className="col-md-6 offset-md-3">
+            <div className="card card-body" id='tarjeta'>
+                <h4>Crear un nivel</h4>
 
-        if (this.validarDatos()) {
-            const newLevel = {
-                title: this.state.title,
-                video: this.state.video,
-                description: this.state.description,
-                number: this.state.number,
-                course: this.state.course
-            };
-            if (this.state.editing) {
-                await axios.patch('http://localhost:4000/api/levels/' + this.state._id, newLevel);
-                toast.success('Curso editado con éxito');
-            } else {
-                const level = await axios.post('http://localhost:4000/api/levels/', newLevel);
-                this.setState({
-                    title: '',
-                    video: '',
-                    description: '',
-                    course: 'no'
-                });
-                toast.success('Nivel creado con éxito');
-                //window.location.href = `/levels/level/${level.data.data.id_}`;
-            }
-        }
-    }
+                <Form onSubmit={handleSubmit(onSubmit)}>
 
-    validarDatos = () => {
-        var todoBien = true;
+                    {
+                        isEditing === false ? (
+                            <Form.Group>
+                                <Form.Label className='Text'>Curso</Form.Label>
+                                <Form.Control
+                                    as="select"
+                                    {...register('course')}
+                                    onChange={onSelectChange}
+                                >
+                                    <option>Seleccione el curso</option>
+                                    {
+                                        courses === undefined ? (
+                                            <option>No tienes cursos</option>
+                                        ) : (
+                                            courses.map(courseP =>
+                                                <option value={courseP._id} key={courseP._id}>
+                                                    {courseP.title}
+                                                </option>)
+                                        )
+                                    }
+                                </Form.Control>
+                                {errors?.role && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.role.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                                {errors?.course && (
+                                    <Form.Text>
+                                        <Alert variant='danger'>
+                                            {errors.course.message}
+                                        </Alert>
+                                    </Form.Text>
+                                )}
+                            </Form.Group>
+                        ) : (
+                            <></>
+                        )
+                    }
+                    <Form.Group>
+                        <Form.Label className='Text'>Título</Form.Label>
+                        <Form.Control
+                            placeholder='Título del Nivel'
+                            {...register('title')}
+                            type='text'
+                        />
+                        {errors?.title && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.title.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className='Text'>Descripción</Form.Label>
+                        <Form.Control
+                            placeholder='Descripción del Nivel'
+                            {...register('description')}
+                            as="textarea" rows={2}
+                        />
+                        {errors?.description && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.description.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className='Text'>Vídeo</Form.Label>
+                        <Form.Control
+                            placeholder='Vídeo del nivel'
+                            {...register('video')}
+                            type='text'
+                        />
+                        {errors?.video && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.video.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
 
-        if (this.state.title == '') {
-            todoBien = false;
-            toast.error('Ingrese Un título')
-        } else if (this.state.title.length < 5) {
-            todoBien = false;
-            toast.error('El título debe contener al menos 5 cáracteres');
-        }
-        if (this.state.video == '') {
-            todoBien = false;
-            toast.error('Ingrese un enlace de vídeo')
-        } else if (this.state.video.length < 5) {
-            todoBien = false;
-            toast.error('Ingrese un enlace válido');
-        }
-        if (this.state.description == '') {
-            todoBien = false;
-            toast.error('Ingrese una descripción')
-        } else if (this.state.description.length < 5) {
-            todoBien = false;
-            toast.error('La descripción debe contener al menos 5 cáracteres');
-        }
+                    <BtnN
+                        style={{
+                            width: '90%',
+                            marginLeft: '3%',
+                            marginTop: '1%'
+                        }}
+                    >{'Guardar'}</BtnN>
 
-        if (this.state.course.length != 24) {
-            todoBien = false;
-            toast.error('Seleccione un curso');
-        }
-
-        return todoBien;
-    }
-
-    render() {
-        return (
-
-
-            <div className="col-md-6 offset-md-3">
-                <div className="card card-body" id='tarjeta'>
-                    <h4>Crear un nivel</h4>
-
-                    <div className="form-group">
-                        <select
-                            name="course"
-                            className='form-control'
-                            onChange={this.onInputChange}
-                            value={this.state.course}
-                        >
-                            <option value="no">Seleccione un curso</option>
-                            {
-                                this.state.courses.map(courseP =>
-                                    <option value={courseP._id} key={courseP._id}>
-                                        {courseP.title}
-                                    </option>)
-                            }
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Título del Nivel' id='Título del nivel' name='title' required
-                            value={this.state.title}
-                            onChange={this.onInputChange} />
-                    </div>
-
-                    <div className="form-group">
-                        <textarea name="description" className='form-control' placeholder='Descripción del Nivel' required
-                            value={this.state.description}
-                            onChange={this.onInputChange}></textarea>
-                    </div>
-
-
-                    <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Enlace del vídeo' name='video' required
-                            value={this.state.video}
-                            onChange={this.onInputChange} />
-                    </div>
-
-                    <form onSubmit={this.onSubmit}>
-
-                        <BtnN>{'Guardar'}</BtnN>
-                    </form>
+                </Form>
 
 
-                </div>
             </div>
+        </div>
 
-        )
-    }
+    )
+
 }

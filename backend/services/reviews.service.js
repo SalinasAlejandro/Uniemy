@@ -86,8 +86,8 @@ class ReviewsService {
 
   async createDB(data) {
     const model = new ReviewsModel(data);
-    await model.save();
-    return data;
+    const dataReturn = await model.save();
+    return dataReturn;
   }
 
   async findOneDB(id) {
@@ -95,6 +95,36 @@ class ReviewsService {
 
       const review = await ReviewsModel.findOne({
         _id: id
+      });
+      if (!review)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return review;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
+  async findReviewsByCourse(id) {
+    try {
+      const reviews = await ReviewsModel.find({
+        course: id
+      });
+      if (!reviews)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return reviews;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
+  async findReviewByUserAndCourse(body) {
+    try {
+
+      const review = await ReviewsModel.findOne({
+        student: body.student,
+        course: body.course
       });
       if (!review)
         throw boom.notFound('No se ha encontrado coincidencia');

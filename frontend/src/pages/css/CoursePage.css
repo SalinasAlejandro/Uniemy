@@ -1,0 +1,38 @@
+.btnCourse {
+    background: transparent;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    border: solid 1px #2f3336;
+    color: #2f3336;
+    height: 45px;
+    cursor: pointer;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-family: Roboto, Sans-Serif;
+    width: 100%;
+}
+
+.btnCourse:hover {
+    background-color: #2f3336;
+    border: solid 1px #ebe07e;
+    color: #ebe07e;
+}
+
+.list-group-flush {
+    margin-left: 10px;
+    margin-right: 25%;
+}
+
+.list-group-item {
+    background-color: rgb(71, 71, 71);
+    margin-bottom: 1px;
+}
+
+a {
+    color: #ebe07e;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    text-decoration: none;
+}

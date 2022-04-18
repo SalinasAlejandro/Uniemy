@@ -8,7 +8,12 @@ const courseSchema = new Schema({
   image: String,
   description: String,
   price: Number,
-  school: String
+  ventas: Number,
+  school: String,
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const model = mongoose.model('coursesCollection', courseSchema);

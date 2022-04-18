@@ -3,35 +3,52 @@ import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import roles from '../helpers/roles';
 import UserAccountResolver from './../validations/UserResolver';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import routes from '../helpers/routes';
 import "./css/RegisterPages.css"
+import { Link } from 'react-router-dom';
 
 export default function RegisterPages() {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: UserAccountResolver });
 
     const onSubmit = async (formData) => {
-        if (formData.type == "Estudiante") {
+        if (formData.type === "Estudiante") {
             formData.type = 0;
         } else {
             formData.type = 1;
         }
 
-        try {
-            const isCreated = await axios.post('http://localhost:4000/api/users/', formData);
-            console.log("El success:", isCreated.data.success);
-            if (isCreated.data.success) {
-                toast.success("Registrado con éxito");
+        toast.promise(async () => {
+
+            const res = await fetch('http://localhost:4000/api/users/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const isCreated = await res.json();
+
+            if (isCreated.success !== true) {
+                toast.error(isCreated.message);
+            } else {
+                toast.success(isCreated.message);
                 reset();
-                setTimeout(function () {
-                    window.location.href = routes.login;
-                }, 3000);
+                toast.promise(() => {
+
+                    setTimeout(function () {
+                        window.location.href = routes.login;
+                    }, 3000);
+
+                }, {
+                    pending: 'Redireccionando...'
+                })
             }
-        } catch (e) {
-            toast.error("Algo falló, intentelo más tarde");
-        }
+
+        }, {
+            pending: 'Creando usuario'
+        });
     };
 
     return (
@@ -39,7 +56,7 @@ export default function RegisterPages() {
 
             <div id="formC">
                 <div>
-                    <img src={require('../pages/img/logo.png')} className="icon" />
+                    <img src={require('../pages/img/logo.png')} className="icon" alt='Logo Uniemy' />
                     <h1 className='Textregistrar'>Registrarse</h1>
                 </div>
                 <Row>
@@ -111,7 +128,11 @@ export default function RegisterPages() {
                                 )}
                             </Form.Group>
 
-                            <Button className='btnr' onClick={handleSubmit(onSubmit)}>Registrarse</Button>
+                            <Link to='/login'>
+                                <Button className='btnr' onClick={handleSubmit(onSubmit)}>
+                                    Registrarse
+                                </Button>
+                            </Link>
 
                         </Form>
                     </Col>

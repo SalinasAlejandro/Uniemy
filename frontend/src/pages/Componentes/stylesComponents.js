@@ -12,9 +12,7 @@ color: #ebe07e;
 `;
 
 export const BtnN = style.button`
-margin-top: 1.5%;
 padding: auto;
-margin-left: 42%;
 background-color: #ebe07e;
 color: #212529;
 border: none; 
@@ -25,6 +23,8 @@ text-transform: uppercase;
 font-size: 15px;
 -webkit-border-radius: 5px 5px 5px 5px;
 border-radius: 5px 5px 5px 5px; 
+width: 45%;
+margin-left: 3%;
 `;
 
 export const DivWrapper = style.div`

@@ -1,135 +1,220 @@
-import React, { Component } from 'react'
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import "./css/CreateCoursePage.css"
 import { BtnN } from './Componentes/stylesComponents';
+import CourseCreateResolver from '../validations/CourseCreateResolver';
+import { Alert, Form } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
-export default class CreateCoursePage extends Component {
+export default function CreateCoursePage() {
 
-    state = {
-        title: '',
-        image: '',
-        description: '',
-        price: '',
-        user: '',
-        editing: false,
-        _id: ''
-    }
+    const [infoCourse, setInfoCourse] = useState();
+    const [isEditing, setIsEditing] = useState();
+    const [isOwner, setIsOwner] = useState();
 
-    async componentDidMount() {
-        const ruta = window.location.pathname.split('/')
-        if (ruta.length > 3) {
-            let idd = ruta[4];
-            const res = await axios.get('http://localhost:4000/api/courses/' + idd);
-            this.setState({
-                title: res.data.title,
-                image: res.data.image,
-                description: res.data.description,
-                price: res.data.price,
-                user: res.data.user,
-                editing: true,
-                _id: idd
-            });
+    const { register, setValue, handleSubmit, formState: { errors }, reset } = useForm({ resolver: CourseCreateResolver });
 
+    useEffect(() => {
+        async function getInfoCourse() {
+            let urlElements = window.location.pathname.split('/');
+            if (urlElements.length !== 4) {
+                setIsEditing(false);
+                setIsOwner(true);
+            } else {
+                setIsEditing(true);
+                const res = await fetch(`http://localhost:4000/api/courses/${urlElements[3]}`);
+                const infCourse = await res.json();
+
+                setInfoCourse(infCourse.data);
+                setIsOwner(infCourse.data.school === localStorage.getItem('_id'));
+
+                setValue('title', infCourse.data.title);
+                setValue('description', infCourse.data.description);
+                setValue('image', infCourse.data.image);
+                setValue('price', infCourse.data.price);
+            }
         }
-    }
+        getInfoCourse();
+    }, []);
 
-    onInputChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
+    const onSubmit = (formData) => {
+        if (isOwner === true) {
+            if (isEditing === false) {
+                createCourse(formData);
+            } else {
+                editCourse(formData);
+            }
+        }
+    };
+
+    const createCourse = async (formData) => {
+
+        toast.promise(async () => {
+
+            formData.school = localStorage.getItem("_id");
+            if (formData.price !== 0) {
+                formData.ventas = 0;
+            }
+            formData.title = formData.title.toUpperCase()
+            const res = await fetch('http://localhost:4000/api/courses/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const isCreated = await res.json();
+
+            if (isCreated.success !== true) {
+                toast.error(isCreated.message);
+            } else {
+                toast.success(isCreated.message);
+                reset();
+            }
+
+        }, {
+            pending: 'Creando curso'
         });
 
     }
 
-    onSubmit = async (e) => {
-        e.preventDefault();
+    const editCourse = async (formData) => {
+        toast.promise(async () => {
 
-        if (this.validarDatos()) {
-            const newCourse = {
-                title: this.state.title,
-                image: this.state.image,
-                description: this.state.description,
-                price: 0,
-                school: localStorage.getItem('_id')
-            };
-            if (this.state.editing) {
-                await axios.patch('http://localhost:4000/api/courses/' + this.state._id, newCourse);
-                toast.success('Curso editado con éxito');
+            if (infoCourse.ventas !== undefined)
+                formData.ventas = infoCourse.ventas;
+            formData.school = infoCourse.school;
+
+            const res = await fetch(`http://localhost:4000/api/courses/${infoCourse._id}`, {
+                method: 'PATCH',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const isEdited = await res.json();
+
+            if (isEdited.success !== true) {
+                toast.error(isEdited.message);
             } else {
-                await axios.post('http://localhost:4000/api/courses/', newCourse);
-                this.setState({
-                    title: '',
-                    image: '',
-                    description: '',
-                    price: ''
-                });
-                toast.success('Curso creado con éxito');
-                //window.location.href = routes.createLevel;
+                toast.success(isEdited.message);
             }
-        }
+
+        }, {
+            pending: 'Editando curso...'
+        });
     }
 
-    validarDatos = () => {
-        var todoBien = true;
+    return (
 
-        if (this.state.title == '') {
-            todoBien = false;
-            toast.error('Ingrese un título')
-        }
-        if (this.state.image == '') {
-            todoBien = false;
-            toast.error('Ingrese una imagen')
-        }
-        if (this.state.description == '') {
-            todoBien = false;
-            toast.error('Ingrese una descripción')
-        }
+        <div className="col-md-6 offset-md-3">
+            <div className="card card-body" id='tarjeta'>
+                {
+                    isEditing === true ? (
+                        <h4>Editar curso</h4>
+                    ) : (
+                        <h4>Crear un curso</h4>
+                    )
+                }
 
-        return todoBien;
-    }
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <Form.Group>
+                        <Form.Label className='Text'>Título</Form.Label>
+                        <Form.Control
+                            placeholder='Título del curso'
+                            {...register('title')}
+                            type='text'
+                        />
+                        {errors?.title && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.title.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className='Text'>Descripción</Form.Label>
+                        <Form.Control
+                            placeholder='Descripción del Curso'
+                            {...register('description')}
+                            as="textarea" rows={2}
+                        />
+                        {errors?.description && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.description.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className='Text'>Imagen</Form.Label>
+                        <Form.Control
+                            placeholder='Imagen del curso'
+                            {...register('image')}
+                            type='text'
+                        />
+                        {errors?.image && (
+                            <Form.Text>
+                                <Alert variant='danger'>
+                                    {errors.image.message}
+                                </Alert>
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className='Text'
+                            style={{
+                                display: 'block'
+                            }}
+                        >
+                            Precio
+                        </Form.Label>
+                        <Form.Control
+                            placeholder='Precio del curso'
+                            {...register('price')}
+                            type='number'
+                            style={{
+                                width: '50%',
+                                display: 'inline'
+                            }}
+                            step=".01"
+                        />
 
-    render() {
-        return (
-
-
-            <div className="col-md-6 offset-md-3">
-                <div className="card card-body" id='tarjeta'>
-                    <h4>Crear un curso</h4>
-
-                    <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Título del Curso' id='title' name='title' required
-                            value={this.state.title}
-                            onChange={this.onInputChange} />
-                    </div>
-
-                    <div className="form-group">
-                        <textarea name="description" className='form-control' placeholder='Descripción del Curso' required
-                            value={this.state.description}
-                            onChange={this.onInputChange}></textarea>
-                    </div>
-
-
-                    <div className="form-group">
-                        <input type="text" className='form-control' placeholder='Imagen' name='image' required
-                            value={this.state.image}
-                            onChange={this.onInputChange} />
-                    </div>
-
-                    <form onSubmit={this.onSubmit}>
                         <BtnN>{'Guardar'}</BtnN>
-                    </form>
 
+                        {errors?.price ?
+                            (
+                                <Form.Text>
+                                    <Alert variant='danger'
+                                        style={{
+                                            width: '50%',
+                                        }}>
+                                        {errors.price.message}
+                                    </Alert>
+                                </Form.Text>
+                            ) :
+                            (
+                                <Form.Text>
+                                    <Alert
+                                        style={{
+                                            width: '50%',
+                                            margin: '0%',
+                                            padding: '0%'
+                                        }}>
+                                        Ingrese '0' si quiere que sea gratuito
+                                    </Alert>
+                                </Form.Text>
+                            )
+                        }
+                    </Form.Group>
 
-                </div>
+                </Form>
+
             </div>
+        </div >
 
-        )
-    }
+    )
+
 }
-
-/*
-                    <div className="form-group">
-                        <input type="file" className='form-control' name='image' accept="image/png, image/jpeg" required
-                            onChange={this.handleFileChange} />
-                    </div>
-                    */

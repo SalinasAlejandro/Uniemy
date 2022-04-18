@@ -7,6 +7,8 @@ const purchaseSchema = new Schema({
   type: String,
   student: String,
   course: String,
+  titleCourse: String,
+  imageCourse: String,
   school: String
 });
 

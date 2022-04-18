@@ -131,12 +131,20 @@ class UserService {
 
     let userOrigin = {
       name: user.name,
+      email: user.email,
       avatar: user.avatar
     };
 
-    const { name, avatar } = changes;
-    user.name = name;
-    user.avatar = avatar;
+    const { name, email, avatar } = changes;
+
+    if (name != undefined)
+      user.name = name;
+
+    if (email != undefined)
+      user.email = email;
+
+    if (avatar != undefined)
+      user.avatar = avatar;
     user.save();
 
     return {

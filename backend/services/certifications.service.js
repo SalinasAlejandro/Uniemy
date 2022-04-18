@@ -101,6 +101,21 @@ class certificationService {
     }
   }
 
+  async findCertification(body) {
+    try {
+      const certi = await CertificationModel.findOne({
+        student: body.student,
+        course: body.course
+      });
+      if (!certi)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return certi;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
   async updateDB(id, changes) {
     let certi = await CertificationModel.findOne({
       _id: id

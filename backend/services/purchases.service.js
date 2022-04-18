@@ -90,11 +90,36 @@ class PurchasesService {
     return data;
   }
 
+  async getPruchaseUserCourse(body) {
+    const user = await PurchaseModel.findOne({
+      student: body.student,
+      course: body.course
+    });
+    if (!user)
+      throw boom.notFound('No se ha encontrado coincidencia');
+    return user;
+  }
+
   async findOneDB(id) {
     try {
 
       const ddpurchase = await PurchaseModel.findOne({
         _id: id
+      });
+      if (!ddpurchase)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return ddpurchase;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
+  async findPurchasesByUser(id) {
+    try {
+
+      const ddpurchase = await PurchaseModel.find({
+        student: id
       });
       if (!ddpurchase)
         throw boom.notFound('No se ha encontrado coincidencia');

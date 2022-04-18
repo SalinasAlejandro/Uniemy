@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const progress = await service.findDB(size || 10, filter);
+    const progress = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son los avances encontrados',
-      'Data': progress
+      'data': progress
     });
   } catch (error) {
     next(error);

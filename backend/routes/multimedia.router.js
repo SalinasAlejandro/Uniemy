@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const multimedia = await service.findDB(size || 10, filter);
+    const multimedia = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son las multimedia encontrada',
-      'Data': multimedia
+      'data': multimedia
     });
   } catch (error) {
     next(error);

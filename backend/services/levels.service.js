@@ -104,6 +104,37 @@ class LevelsService {
     }
   }
 
+  async findLevelsCourse(id) {
+    try {
+
+      const level = await LevelModel.find({
+        course: id
+      });
+      if (!level)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return level;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
+  async findLevelPrevNext(data) {
+    try {
+
+      const level = await LevelModel.find({
+        course: data.course,
+        number: data.number
+      });
+      if (!level)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return level;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
   async updateDB(id, changes) {
     let level = await LevelModel.findOne({
       _id: id

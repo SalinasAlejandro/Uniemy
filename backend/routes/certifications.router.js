@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const certifications = await service.findDB(size || 10, filter);
+    const certifications = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son los certificados encontrados',
-      'Data': certifications
+      'data': certifications
     });
   } catch (error) {
     next(error);
@@ -39,6 +39,21 @@ router.get('/:idCertification', validatorHandler(getCertificationId, 'params'), 
   try {
     const { idCertification } = req.params;
     const certification = await service.findOneDB(idCertification);
+    res.json({
+      'success': true,
+      'message': 'Certificado encontrado',
+      'data': certification
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET CERTIFICATION BY USER AND COURSE
+router.post('/certification', async (req, res, next) => {
+  try {
+    const body = req.body;
+    const certification = await service.findCertification(body);
     res.json({
       'success': true,
       'message': 'Certificado encontrado',

@@ -3,8 +3,8 @@ const Joi = require('joi');
 const idReview = Joi.string();
 const like = Joi.number().min(0).max(1);
 const comment = Joi.string().min(5);
-const student = Joi.string().min(3).max(50);
-const course = Joi.string().min(5).max(50);
+const student = Joi.string().min(3);
+const course = Joi.string().min(5);
 
 const createReviewDto = Joi.object({
   like: like.required(),

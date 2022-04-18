@@ -1,27 +1,35 @@
 import React from 'react';
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAuth from '../auth/useAuth';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import "./css/LoginPages.css"
 import { DivWrapper } from './Componentes/stylesComponents';
+import routes from '../helpers/routes';
 
 export default function LoginPages() {
 
     const location = useLocation();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { login } = useAuth();
 
     const onSubmit = async (formData) => {
-        try {
-            const hayCoincidencia = await axios.post('http://localhost:4000/api/users/login', formData);
-            if (hayCoincidencia.data.success) {
-                login(hayCoincidencia.data.data, location.state?.from)
+        toast.dismiss();
+
+        const res = await fetch('http://localhost:4000/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json'
             }
-        } catch (error) {
-            toast.error("Credenciales incorrectas");
+        });
+        const hayCoincidencia = await res.json();
+
+        if (hayCoincidencia.success !== true) {
+            toast.error(hayCoincidencia.message);
+        } else {
+            login(hayCoincidencia.data, location.state?.from);
         }
     };
 
@@ -31,7 +39,7 @@ export default function LoginPages() {
                 <DivWrapper className="wrapper">
                     <div id="formContent">
                         <div>
-                            <img src={require('../pages/img/logo.png')} className="icon" />
+                            <img src={require('../pages/img/logo.png')} className="icon" alt='Logo Uniemy' />
                             <h1 className='Textiniciar'>Iniciar Sesión</h1>
                         </div>
 
@@ -68,7 +76,9 @@ export default function LoginPages() {
                         </Col>
 
                         <div>
-                            <a className="registro" href="register">¿No tiene cuenta? Registrese</a>
+                            <Link className="registro" to={routes.register}>
+                                ¿No tiene cuenta? Registrese
+                            </Link>
                         </div>
                     </div>
                 </DivWrapper>

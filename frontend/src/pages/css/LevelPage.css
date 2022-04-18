@@ -26,6 +26,7 @@
     display: block;
     font-family: Roboto, Sans-Serif;
     width: 100%;
+    margin: 5px;
 }
 
 .finalizarCurso:hover {
@@ -34,14 +35,9 @@
     color: #222;
 }
 
-.video {
-    margin-left: 33%;
-}
-
-.btnN {
-
+.prev {
     padding: auto;
-    margin-left: 80%;
+    margin-left: 10%;
     background-color: #212529;
     color: #ebe07e;
     border: none;
@@ -54,6 +50,21 @@
     border-radius: 5px 5px 5px 5px;
 }
 
-.btnN:hover {
+.next {
+    padding: auto;
+    margin-left: 40%;
+    background-color: #212529;
+    color: #ebe07e;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.next:hover {
     color: #c2b00c;
 }

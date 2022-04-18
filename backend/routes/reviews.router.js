@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const reviews = await service.findDB(size || 10, filter);
+    const reviews = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son las reseñas guardados actualmente',
-      'Data': reviews
+      'data': reviews
     });
   } catch (error) {
     next(error);
@@ -42,6 +42,36 @@ router.get('/:idReview', validatorHandler(getReviewId, 'params'), async (req, re
     res.json({
       'success': true,
       'message': 'Reseña encontrada',
+      'data': review
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET REVIEW BY COURSE
+router.get('/reviews/:idCourse', async (req, res, next) => {
+  try {
+    const { idCourse } = req.params;
+    const review = await service.findReviewsByCourse(idCourse);
+    res.json({
+      'success': true,
+      'message': 'Reseñas encontradas',
+      'data': review
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET REVIEW BY USER AND COURSE
+router.post('/review', async (req, res, next) => {
+  try {
+    const body = req.body;
+    const review = await service.findReviewByUserAndCourse(body);
+    res.json({
+      'success': true,
+      'message': 'Se ha creado con éxito',
       'data': review
     });
   } catch (error) {

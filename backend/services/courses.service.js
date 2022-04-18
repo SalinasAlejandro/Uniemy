@@ -74,7 +74,17 @@ class CoursesService {
   /////////////////////////////////////////////////////////////////////DB METHODS
 
   async findDB(limit, filter) {
-    let coursesDB = await CourseModel.find(filter);
+    let coursesDB;
+
+    if (filter === 'date') {
+      coursesDB = await CourseModel.find().sort({ date: -1 });
+    } else if (filter === 'title') {
+      coursesDB = await CourseModel.find().sort({ title: 1 });
+    } else if (filter === 'sellers') {
+      coursesDB = await CourseModel.find({ price: { $gt: 0 } }).sort({ ventas: -1 });
+    } else if (filter === 'free') {
+      coursesDB = await CourseModel.find({ price: 0 }).sort({ date: -1 });
+    }
 
     if (!coursesDB || coursesDB.length < 1)
       throw boom.notFound('No hay registros actualmente');
@@ -94,6 +104,21 @@ class CoursesService {
 
       const course = await CourseModel.findOne({
         _id: id
+      });
+      if (!course)
+        throw boom.notFound('No se ha encontrado coincidencia');
+      return course;
+
+    } catch (error) {
+      throw boom.conflict("Error: " + error.message)
+    }
+  }
+
+  async findCoursesSchool(id) {
+    try {
+
+      const course = await CourseModel.find({
+        school: id
       });
       if (!course)
         throw boom.notFound('No se ha encontrado coincidencia');

@@ -11,18 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const items = [
   {
-    src: require('../img/bienvenido.png'),
+    src: require('../img/logo.png'),
     altText: 'Imagen 1',
     caption: ''
   },
   {
-    src: require('../img/logo.png'),
+    src: require('../img/bienvenido.png'),
     altText: 'Imagen 2',
-    caption: ''
-  },
-  {
-    src: require('../img/curso.png'),
-    altText: 'Imagen 3',
     caption: ''
   }
 ];
@@ -75,8 +70,5 @@ const InicioCarrusel = (props) => {
     </Carousel>
   );
 }
-
-
-
 
 export default InicioCarrusel;

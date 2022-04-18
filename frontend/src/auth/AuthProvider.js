@@ -1,6 +1,5 @@
 import { useState, createContext } from 'react';
-import { useNavigate } from 'react-router-dom'
-import roles from '../helpers/roles';
+import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
@@ -25,7 +24,12 @@ export default function AuthProvider({ children }) {
         if (fromLocation)
             history(fromLocation, { replace: true });
     }
-    const logout = () => setUser(null);
+    const logout = () => {
+
+        setUser(null);
+        localStorage.setItem("_id", null);
+
+    }
 
     const updateUser = (data) => {
         setUser({

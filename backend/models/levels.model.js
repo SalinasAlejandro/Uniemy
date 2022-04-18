@@ -8,7 +8,8 @@ const levelSchema = new Schema({
   video: String,
   description: String,
   number: Number,
-  course: String
+  course: String,
+  school: String
 });
 
 const model = mongoose.model('levelsCollection', levelSchema);

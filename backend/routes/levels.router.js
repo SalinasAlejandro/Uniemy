@@ -11,11 +11,11 @@ router.get('/', async (req, res, next) => {
   try {
     const { size } = req.query;
     const filter = req.body;
-    const levels = await service.findDB(size || 10, filter);
+    const levels = await service.findDB(size || 1000, filter);
     res.json({
       'success': true,
       'message': 'Estos son los niveles guardados actualmente',
-      'Data': levels
+      'data': levels
     });
   } catch (error) {
     next(error);
@@ -42,6 +42,36 @@ router.get('/:idLevel', validatorHandler(getLevelId, 'params'), async (req, res,
     res.json({
       'success': true,
       'message': 'Nivel encontrado',
+      'data': level
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET LEVELS OF COURSES
+router.get('/course/:idCouse', async (req, res, next) => {
+  try {
+    const { idCouse } = req.params;
+    const levels = await service.findLevelsCourse(idCouse);
+    res.json({
+      'success': true,
+      'message': 'Niveles encontrados',
+      'data': levels
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET LEVELS OF COURSES
+router.post('/level/PrevNext', async (req, res, next) => {
+  try {
+    const body = req.body;
+    const level = await service.findLevelPrevNext(body);
+    res.json({
+      'success': true,
+      'message': 'Nivel previo/siguiente encontrado',
       'data': level
     });
   } catch (error) {

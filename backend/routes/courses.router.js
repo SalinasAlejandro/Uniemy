@@ -9,13 +9,12 @@ const router = express.Router();
 //GET ALL COURSES
 router.get('/', async (req, res, next) => {
   try {
-    const { size } = req.query;
-    const filter = req.body;
-    const courses = await service.findDB(size || 10, filter);
+    const { size, filter } = req.query;
+    const courses = await service.findDB(size || 1000, filter || 'date');
     res.json({
       'success': true,
       'message': 'Estos son todos los cursos',
-      'Data': courses
+      'data': courses
     });
   } catch (error) {
     next(error);
@@ -43,6 +42,21 @@ router.get('/:idCourse', validatorHandler(getCourseId, 'params'), async (req, re
       'success': true,
       'message': 'Curso encontrado',
       'data': course
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+////////////////////////////////GET COURSES OF SCHOOL
+router.get('/school/:idSchool', async (req, res, next) => {
+  try {
+    const { idSchool } = req.params;
+    const courses = await service.findCoursesSchool(idSchool);
+    res.json({
+      'success': true,
+      'message': 'Cursos encontrados',
+      'data': courses
     });
   } catch (error) {
     next(error);
