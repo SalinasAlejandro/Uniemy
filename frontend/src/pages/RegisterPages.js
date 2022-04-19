@@ -66,7 +66,7 @@ export default function RegisterPages() {
                             <Form.Group>
                                 <Form.Label className='Text'>Nombre</Form.Label>
                                 <Form.Control
-                                    placeholder='Escriba su nombre'
+                                    placeholder='Escriba su Nombre'
                                     {...register('name')}
                                     type='text'
                                 />
@@ -79,9 +79,9 @@ export default function RegisterPages() {
                                 )}
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label className='Text'>Correo</Form.Label>
+                                <Form.Label className='Text'>Correo Electrónico</Form.Label>
                                 <Form.Control
-                                    placeholder='Escriba su correo'
+                                    placeholder='Escriba su Correo Electrónico'
                                     {...register('email')}
                                     type='email'
                                 />
@@ -94,9 +94,9 @@ export default function RegisterPages() {
                                 )}
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label className='Text'>Nueva Contraseña</Form.Label>
+                                <Form.Label className='Text'>Contraseña</Form.Label>
                                 <Form.Control
-                                    placeholder='Escriba su nueva Contraseña'
+                                    placeholder='Escriba su Contraseña'
                                     {...register('password')}
                                     type='password'
                                 />
@@ -114,7 +114,7 @@ export default function RegisterPages() {
                                     as="select"
                                     {...register('type')}
                                 >
-                                    <option>Seleccione el tipo de cuenta</option>
+                                    <option>Seleccione el Tipo de Cuenta</option>
                                     {Object.keys(roles).map(role => (
                                         <option key={role}>{role}</option>
                                     ))}

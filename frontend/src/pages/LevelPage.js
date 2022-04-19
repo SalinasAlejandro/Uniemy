@@ -158,8 +158,8 @@ export default function LevelPage() {
     return (
         <div className='container'>
             <h1 className='tituloSeccionN' align="center">{infoLevel?.title}</h1>
-            <Link to={routes.course(infoLevel?.course)} className="btn btn-primary">
-                Ver curso
+            <Link to={routes.course(infoLevel?.course)}className="volver">
+                Volver al curso
             </Link>
             <ReactPlayer
                 url={infoLevel?.video}
@@ -170,18 +170,7 @@ export default function LevelPage() {
 
             <p>{infoLevel?.description}</p>
 
-            <div className="recursos">
-                <h3>Recursos Adicionales *Por parte del CREADOR*</h3>
-                {
-                    isOwner === true ? (
-                        <span className="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArchivos">
-                            <span className="fas fa-plus-circle"></span>Agregar archivos
-                        </span>
-                    ) : (
-                        <></>
-                    )
-                }
-            </div>
+          
 
             {
                 isOwner === true ? (
@@ -199,7 +188,7 @@ export default function LevelPage() {
                 )
             }
 
-
+<br></br>
             {
                 infoLevel?.number !== 1 ? (
                     <Link className="prev" to={routes.level(infoLevel?.course, prevLev)} onClick={newUrl}>

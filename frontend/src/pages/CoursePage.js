@@ -125,7 +125,7 @@ export default function CoursePage() {
           <img src={infoCourse?.image} alt='Imagen del curso' />
         </div>
 
-        <h4>{infoCourse?.description}</h4>
+        <h4 align="center">{infoCourse?.description}</h4>
 
         {
           isOwner === true ? (
@@ -179,29 +179,29 @@ export default function CoursePage() {
                 isFinished === false ? (
                   <>
                     <hr />
-                    <h3>Finaliza el curso para poder añadir una reseña :D </h3>
+                    <h3 align="center">Finaliza el curso para poder añadir una reseña :D </h3>
                     <hr />
                   </>
                 ) : (
                   myReview === false ? (
                     <>
                       <hr />
-                      <button onClick={openReviewModal}>Añadir Reseña</button>
+                      <button className='boton' onClick={openReviewModal}>Añadir Reseña</button>
                       <hr />
                     </>
                   ) : (
                     <div>
                       <hr />
-                      <h4>Mi Reseña</h4>
+                      <h4 align="center">Mi Reseña</h4>
                       {
                         myReview?.like === 1 ? (
-                          <h5>Like</h5>
+                          <h5 align="center">Like</h5>
                         ) : (
-                          <h5>Dislike</h5>
+                          <h5 align="center">Dislike</h5>
                         )
                       }
-                      <p>{myReview?.comment}</p>
-                      <button onClick={openReviewModal}>Editar Reseña</button>
+                      <p align="center">{myReview?.comment}</p>
+                      <button className='boton'  onClick={openReviewModal}>Editar Reseña</button>
                       <hr />
                     </div>
                   )
@@ -210,12 +210,12 @@ export default function CoursePage() {
           )
       }
 
-      <h4>Reseñas del curso</h4>
+      <h4 align="center">Reseñas del curso</h4>
       {
         courseReviews === false ? (
           <>
             <br />
-            <h4>Curso sin reseñas</h4>
+            <h4 align="center">Curso sin reseñas</h4>
             <br />
           </>
         ) : (
@@ -226,16 +226,17 @@ export default function CoursePage() {
                 <img
                   src="/img/dislike.png"
                   alt="Dislike" />
-                <h6>{reviewCourse.comment}</h6>
+                <h6 >{reviewCourse.comment}</h6>
                 <br />
               </>
             ) : (
               <>
                 <br />
                 <img
+                className='cali'
                   src="/img/like.png"
                   alt="Dislike" />
-                <h6>{reviewCourse.comment}</h6>
+                <h6 className='cali'align="center">{reviewCourse.comment}</h6>
                 <br />
               </>
             )

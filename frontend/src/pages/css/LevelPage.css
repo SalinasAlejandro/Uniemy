@@ -1,5 +1,5 @@
 .tituloSeccionN {
-    margin-top: -3.45%;
+    margin-top: -0.45%;
     background: #2f3336;
     padding: 10px 25px 15px;
     font-size: 2em;
@@ -52,7 +52,7 @@
 
 .next {
     padding: auto;
-    margin-left: 40%;
+    margin-left: 80%;
     background-color: #212529;
     color: #ebe07e;
     border: none;
@@ -66,5 +66,24 @@
 }
 
 .next:hover {
+    color: #c2b00c;
+}
+
+
+.volver {
+    padding: auto;
+    background-color: #212529;
+    color: #ebe07e;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.volver:hover {
     color: #c2b00c;
 }

@@ -8,6 +8,7 @@ import useModal from '../hooks/useModal';
 import DeleteModal from './Modals/DeleteModal';
 import EditModal from './Modals/EditModal';
 import ProfilePicModal from './Modals/ProfilePicModal';
+import './css/UserPage.css';
 
 export default function UserPage() {
 
@@ -52,6 +53,7 @@ export default function UserPage() {
                 <Row className='mt-4'>
                     <Col>
                         <img
+                            className='avat'
                             src={user?.avatar || "/img/avatar.svg"}
                             alt="Profile"
                             style={{
@@ -62,7 +64,7 @@ export default function UserPage() {
                             }} />
                     </Col>
                     <Col className='mt-4'>
-                        <Card style={{ maxWidth: '360px' }} className='mx-auto p-4'>
+                        <Card className="info" style={{ maxWidth: '360px' }}>
                             <p className='text-center'> <b>Nombre: </b> {user.name} </p>
                             <p className='text-center'> <b>Correo: </b> {user.email} </p>
                             <p className='text-center'> <b>Rol: </b> {user.type === 0 ? 'Estudiante' : 'Escuela'} </p>
@@ -85,21 +87,23 @@ export default function UserPage() {
                 user.type === roles.Escuela ? (
 
                     <>
-                        <h2>Cursos Creados</h2>
+                    <br></br>
+                    <hr />
+                        <h2 className='text' align="center">Cursos Creados</h2>
                         {
                             listcourses === false ? (
-                                <h4>No hay cursos creados</h4>
+                                <h4 align="center">No hay cursos creados</h4>
                             ) : (
                                 <Row xs={1} md={2} lg={3} className="g-4">
                                     {
                                         listcourses.map(course => (
                                             <Col>
-                                                <Card>
-                                                    <Card.Img variant="top" src={course.image} />
+                                                <Card className='tarjeta'>
+                                                    <Card.Img variant="top" src={course.image} width="100%" height={200}/>
                                                     <Card.Body>
                                                         <Card.Title>{course.title}</Card.Title>
                                                         <Link to={routes.course(course._id)}>
-                                                            <Button variant="primary">Ver Curso</Button>
+                                                            <Button className='ver'>Ver Curso</Button>
                                                         </Link>
                                                     </Card.Body>
                                                 </Card>
@@ -114,21 +118,22 @@ export default function UserPage() {
                 ) : (
 
                     <>
-                        <h2>Cursos Comprados</h2>
+                    <hr />
+                        <h2 className='text' align="center">Cursos Comprados</h2>
                         {
                             listcourses === false ? (
-                                <h4>No hay cursos comprados</h4>
+                                <h4 align="center">No hay cursos comprados</h4>
                             ) : (
                                 <Row xs={1} md={2} lg={3} className="g-4">
                                     {
                                         listcourses.map(course => (
                                             <Col>
-                                                <Card>
+                                                <Card className='tarjeta'>
                                                     <Card.Img variant="top" src={course.imageCourse} />
                                                     <Card.Body>
                                                         <Card.Title>{course.titleCourse}</Card.Title>
                                                         <Link to={routes.course(course.course)}>
-                                                            <Button variant="primary">Ver Curso</Button>
+                                                            <Button className='ver'>Ver Curso</Button>
                                                         </Link>
                                                     </Card.Body>
                                                 </Card>

@@ -1,42 +1,48 @@
-.container2 {
-  width: 1110px;
-  margin-bottom: 10px;
+.avat{
+  margin-top: 8%;
+  margin-left: 50%;
+  box-shadow: 0 0 12px rgb(20, 45, 78);
+
+}
+.info{
+  color: #f8dd70;
+  background-color: #212529;
+  box-shadow: 0 0 12px rgb(239 196 16);
+  margin-left: -10%;
+  padding: 10px 10px;
+  width: auto;
+}
+.text{
+  margin-top: .5%;
+}
+.g-4{
+ padding: .5% 2% 2%;
+ margin-top: .5%;
+ margin-left: 15%;
+ width: 70%;
+ background-color: #212529;
+
+}
+.tarjeta{
+  background-color: rgb(48, 72, 94);
 }
 
-.button-edit {
-  color: black !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  background-color: #f8dd70;
-  border-color: #4b34ca !important;
-}
 
-.button-borrar {
-  color: black !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  background-color: #f88070;
-  border-color: #4b34ca !important;
-}
-
-.button-borrar:hover {
-  background-color: red !important;
-}
-
-.button-edit:hover {
-  background-color: rgb(232, 235, 54) !important;
-}
-
-
-#btnAvatar {
-  position: relative;
-  overflow: hidden;
-  margin-top: 72%;
-  margin-bottom: -8%;
-  width: 100%;
+.ver {
+  padding: auto;
+  background-color: #212529;
+  color: #ebe07e;
   border: none;
-  border-radius: 0;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
   font-size: 15px;
-  background: transparent;
-  color: black;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.ver:hover {
+  background-color: #ebe07e;
+  color: #181b1d;
 }

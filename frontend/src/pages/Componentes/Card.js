@@ -40,7 +40,7 @@ const Card = () => {
 
    return (
 
-      <div className="Seccion">
+      <div className="Seccion"  align="center">
 
          <TitleCard>{'Más recientes'}</TitleCard>
          <div className="container">
@@ -54,7 +54,7 @@ const Card = () => {
                         <div div className="col-md-4">
                            <Link className="card" id="curso" to={routes.course(course._id)}>
                               <div className='card' id="curso">
-                                 <img src={course.image} alt='Imagen del curso' />
+                                 <img src={course.image} width="100%" height={200}  alt='Imagen del curso' />
                                  <div className='card-body'>
                                     <h4 className='card-title' align="center">{course.title}</h4>
                                     <p>{course.description}</p>
@@ -80,7 +80,7 @@ const Card = () => {
                         <div div className="col-md-4">
                            <Link className="card" id="curso" to={routes.course(course._id)}>
                               <div className='card' id="curso">
-                                 <img src={course.image} alt='Imagen del curso' />
+                                 <img src={course.image} width="100%" height={200}alt='Imagen del curso' />
                                  <div className='card-body'>
                                     <h4 className='card-title' align="center">{course.title}</h4>
                                     <p>{course.description}</p>
@@ -106,7 +106,7 @@ const Card = () => {
                         <div div className="col-md-4">
                            <Link className="card" id="curso" to={routes.course(course._id)}>
                               <div className='card' id="curso">
-                                 <img src={course.image} alt='Imagen del curso' />
+                                 <img src={course.image} width="100%" height={200} alt='Imagen del curso' />
                                  <div className='card-body'>
                                     <h4 className='card-title' align="center">{course.title}</h4>
                                     <p>{course.description}</p>

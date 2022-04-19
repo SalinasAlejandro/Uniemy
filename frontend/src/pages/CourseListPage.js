@@ -31,9 +31,9 @@ export default class CourseListPage extends Component {
 
                                 <div className="col-md-4 p-2" key={course._id}>
                                     <Link className="card" id="curso" to={routes.course(course._id)}>
-                                        <div className='card-body'>
+                                        <div >
 
-                                            <img src={course.image} width="100%" height={150} alt="Imagen del curso" />
+                                            <img src={course.image} width="100%" height={200} alt="Imagen del curso" />
 
                                             <div className="card-title" align="center">
                                                 <h5>{course.title}</h5>

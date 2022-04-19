@@ -4,6 +4,8 @@ import routes from './../helpers/routes';
 import { PDFDocument, rgb } from 'pdf-lib';
 import { saveAs } from 'file-saver';
 import certificadoPDF from './certificado.pdf';
+import './css/Certificate.css';
+
 
 export default function CertificatePages() {
 
@@ -105,14 +107,15 @@ export default function CertificatePages() {
 
     return (
         <>
-            <header>
-                <a href="perfil.php"><img src={require('./img/logo.png')} alt='Logo' className="logo" /></a>
-                <h1><strong>Felicitaciones </strong> </h1>
-                <h4>UNIEMY</h4>
-                <h4>ortorga su certificado por haber concluido el curso </h4>
+            <header className='texto'>
+                <h1 align="center"><strong>Felicitaciones </strong> </h1>
+                <h4 align="center">UNIEMY</h4>
+                <img src={require('./img/logo.png')} alt='Logo' className="logoo" />
+
+                <h4 align="center">Ortorga su certificado por haber concluido el curso </h4>
             </header>
 
-            <main>
+            <main className='botones'>
                 <button onClick={download}>Descargar Certificado</button>
                 <Link to={routes.course(infoCourse?._id)}>
                     <button>Ir al curso</button>

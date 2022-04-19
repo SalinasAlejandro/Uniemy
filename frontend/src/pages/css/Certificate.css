@@ -1,0 +1,24 @@
+.texto{
+margin-top: 3%;
+}
+.logoo{
+    margin-left: 30%;
+    width: 550px;
+
+}
+.botones{
+    margin-top: 3%;
+    margin-left: 35%;
+}
+button{
+    background-color: #212529;
+    color: #ebe07e;
+    margin-left: 1%;
+    border: 0px;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 150%;
+}
+button:hover{
+    background-color: #173380;
+}
