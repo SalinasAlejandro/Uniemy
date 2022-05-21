@@ -3,7 +3,8 @@
 		"_postman_id": "ec8b6b48-2b34-4037-beb5-4575a8c5fa5c",
 		"name": "Uniemy",
 		"description": "Solicitudes para la aplicación web Uniemy, proyecto para la materia Programación Web 2, odenadas en carpetas y alfabéticamente por su nombre en inglés.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18116693"
 	},
 	"item": [
 		{
@@ -189,7 +190,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/categories/d64a56ae-6535-4c9b-b35d-6c79c9c230e9",
+							"raw": "http://localhost:3000/api/categories/622aa68d8a74002e2b69d489",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -198,7 +199,7 @@
 							"path": [
 								"api",
 								"categories",
-								"d64a56ae-6535-4c9b-b35d-6c79c9c230e9"
+								"622aa68d8a74002e2b69d489"
 							]
 						},
 						"description": "Consigue la categoría que se encuentra con el id indicado."
@@ -276,7 +277,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/d64a56ae-6535-4c9b-b35d-6c79c9c230e9",
+							"raw": "http://localhost:3000/api/categories/622aab428a74002e2b69d48b",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -285,7 +286,7 @@
 							"path": [
 								"api",
 								"categories",
-								"d64a56ae-6535-4c9b-b35d-6c79c9c230e9"
+								"622aab428a74002e2b69d48b"
 							]
 						},
 						"description": "Actualiza la categoría que se encuentra con el id indicado.\n\nEl paámetro que se envía a través del body es:\n\ncategory: Nombre de la categoría."
@@ -363,7 +364,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/categories/d64a56ae-6535-4c9b-b35d-6c79c9c230e9",
+							"raw": "http://localhost:3000/api/categories/622aa68d8a74002e2b69d489",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -372,7 +373,7 @@
 							"path": [
 								"api",
 								"categories",
-								"d64a56ae-6535-4c9b-b35d-6c79c9c230e9"
+								"622aa68d8a74002e2b69d489"
 							]
 						},
 						"description": "Elimina la categoría que se encuentra con el id indicado."
@@ -447,12 +448,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/",
+							"raw": "http://localhost:4000/api/certifications/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"certifications",
@@ -534,12 +535,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/",
+							"raw": "http://localhost:4000/api/certifications/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"certifications",
@@ -621,16 +622,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/0df7b912-2dbb-4586-8477-347bfa40adcd",
+							"raw": "http://localhost:4000/api/certifications/625780716309601d652d5ed2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"certifications",
-								"0df7b912-2dbb-4586-8477-347bfa40adcd"
+								"625780716309601d652d5ed2"
 							]
 						},
 						"description": "Consigue el certificado que se encuentra con el id indicado."
@@ -708,7 +709,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/0df7b912-2dbb-4586-8477-347bfa40adcd",
+							"raw": "http://localhost:3000/api/certifications/622ab000c0b6621ae0932dc3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -717,7 +718,7 @@
 							"path": [
 								"api",
 								"certifications",
-								"0df7b912-2dbb-4586-8477-347bfa40adcd"
+								"622ab000c0b6621ae0932dc3"
 							]
 						},
 						"description": "Actualiza el certificado que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\nstudent: Que es el nombre del usuario alumno.  \ncourse: Nombre del curso que se ha certificado.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -795,7 +796,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/0df7b912-2dbb-4586-8477-347bfa40adcd",
+							"raw": "http://localhost:3000/api/certifications/622ab000c0b6621ae0932dc3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -804,7 +805,7 @@
 							"path": [
 								"api",
 								"certifications",
-								"0df7b912-2dbb-4586-8477-347bfa40adcd"
+								"622ab000c0b6621ae0932dc3"
 							]
 						},
 						"description": "Elimina el certificado que se encuentra con el id indicado."
@@ -866,6 +867,38 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"Se ha eliminado con éxito\",\n    \"data\": {\n        \"idCertification\": \"0df7b912-2dbb-4586-8477-347bfa40adcd\",\n        \"student\": \"Yareli Salinas\",\n        \"course\": \"Programación básica en c++\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "getCertificationByUserAndCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/certifications/certification/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"certifications",
+								"certification",
+								""
+							]
+						},
+						"description": "Consigue el certificado de cierto curso de un usuario."
+					},
+					"response": []
 				}
 			],
 			"description": "Carpeta para todas las solicitudes de la entidad \"Certificaciones\""
@@ -875,20 +908,31 @@
 			"item": [
 				{
 					"name": "getAllCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses/",
+							"raw": "http://localhost:4000/api/courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
-								"courses",
-								""
+								"courses"
 							]
 						},
 						"description": "Consigue todas los cursos guardados actualmente"
@@ -966,12 +1010,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses/",
+							"raw": "http://localhost:4000/api/courses/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"courses",
@@ -1053,16 +1097,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/courses/e5e481ef-29b8-4685-954b-38cf16e8f758",
+							"raw": "http://localhost:4000/api/courses/6254a9ab5c3d21af9774c5ef",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"courses",
-								"e5e481ef-29b8-4685-954b-38cf16e8f758"
+								"6254a9ab5c3d21af9774c5ef"
 							]
 						},
 						"description": "Consigue el curso que se encuentra con el id indicado."
@@ -1140,16 +1184,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses/e5e481ef-29b8-4685-954b-38cf16e8f758",
+							"raw": "http://localhost:4000/api/courses/622ab27a5b98c7cad9273d7c",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"courses",
-								"e5e481ef-29b8-4685-954b-38cf16e8f758"
+								"622ab27a5b98c7cad9273d7c"
 							]
 						},
 						"description": "Actualiza el curso que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\ntitle: Que es el nombre del curso.  \nimage: Que es la imagen del curso.  \ndescription: Descripción del curso.  \nprice: Precio del curso.  \nschool: Nombre del maestro del curso.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -1227,7 +1271,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/courses/e5e481ef-29b8-4685-954b-38cf16e8f758",
+							"raw": "http://localhost:3000/api/courses/622ab27a5b98c7cad9273d7c",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1236,7 +1280,7 @@
 							"path": [
 								"api",
 								"courses",
-								"e5e481ef-29b8-4685-954b-38cf16e8f758"
+								"622ab27a5b98c7cad9273d7c"
 							]
 						},
 						"description": "Elimina el curso que se encuentra con el id indicado."
@@ -1298,6 +1342,29 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"Se ha eliminado con éxito\",\n    \"data\": {\n        \"idCourse\": \"e5e481ef-29b8-4685-954b-38cf16e8f758\",\n        \"title\": \"JavaScript básico para principiantes\",\n        \"image\": \"https://soyhorizonte.com/wp-content/uploads/2020/10/Javascript-by-SoyHorizonte.jpg\",\n        \"description\": \"Curso para todos aquellos que quieran aprender javascript desde 0\",\n        \"price\": 99.99,\n        \"school\": \"Alejandro Taboada\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "getCoursesOfSchool",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/courses/school/6247bfa4ae387fda9d813ed3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"courses",
+								"school",
+								"6247bfa4ae387fda9d813ed3"
+							]
+						},
+						"description": "Consigue todos los cursos creados de cierto usuario"
+					},
+					"response": []
 				}
 			],
 			"description": "Carpeta para todas las solicitudes de la entidad \"Cusos\""
@@ -1311,12 +1378,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/levels/",
+							"raw": "http://localhost:4000/api/levels/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"levels",
@@ -1398,12 +1465,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/levels/",
+							"raw": "http://localhost:4000/api/levels/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"levels",
@@ -1485,16 +1552,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/levels/b3eec6ff-31a1-4030-8969-d3f2a37f4a69",
+							"raw": "http://localhost:4000/api/levels/62578882310d0d2a7e819077",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"levels",
-								"b3eec6ff-31a1-4030-8969-d3f2a37f4a69"
+								"62578882310d0d2a7e819077"
 							]
 						},
 						"description": "Consigue el nivel que se encuentra con el id indicado."
@@ -1564,7 +1631,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n            \"title\": \"Primer programa en c++\",\r\n            \"video\": \"https://www.youtube.com/watch?v=ld4nzao5XAc\",\r\n            \"description\": \"En este vídeo vamos a crear nuestro primer programa en c++, el 'Hola mundo :D', y además veremos como podemos dar saltos de linea en la consola\",\r\n            \"number\": 1,\r\n            \"course\": \"Programación en c++\"\r\n}",
+							"raw": "{\r\n            \"title\": \"Primer programa en c++\",\r\n            \"video\": \"https://www.youtube.com/watch?v=ld4nzao5XAc\",\r\n            \"description\": \"En este vídeo vamos a crear nuestro primer programa en c++, el 'Hola mundo :D', y además veremos como podemos dar saltos de linea en la consola\",\r\n            \"number\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1572,16 +1639,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/levels/b3eec6ff-31a1-4030-8969-d3f2a37f4a69",
+							"raw": "http://localhost:4000/api/levels/622ab608fff62becbf9c8597",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"levels",
-								"b3eec6ff-31a1-4030-8969-d3f2a37f4a69"
+								"622ab608fff62becbf9c8597"
 							]
 						},
 						"description": "Actualiza el nivel que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\ntitle: Que es el nombre del nivel.  \nvideo: Ruta del vídeo.  \ndescription: Descripción del nivel.  \nnumber: Número del nivel.  \nCourse: Nombre del curso al que pertenece este nivel.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -1659,7 +1726,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/levels/b3eec6ff-31a1-4030-8969-d3f2a37f4a69",
+							"raw": "http://localhost:3000/api/levels/622ab608fff62becbf9c8597",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1668,7 +1735,7 @@
 							"path": [
 								"api",
 								"levels",
-								"b3eec6ff-31a1-4030-8969-d3f2a37f4a69"
+								"622ab608fff62becbf9c8597"
 							]
 						},
 						"description": "Elimina el nivel que se encuentra con el id indicado."
@@ -1730,6 +1797,29 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"Se ha eliminado con éxito\",\n    \"data\": {\n        \"idLevel\": \"b3eec6ff-31a1-4030-8969-d3f2a37f4a69\",\n        \"title\": \"Primer programa en c++\",\n        \"video\": \"https://www.youtube.com/watch?v=ld4nzao5XAc\",\n        \"description\": \"En este vídeo vamos a crear nuestro primer programa en c++, el 'Hola mundo :D', y además veremos como podemos dar saltos de linea en la consola\",\n        \"number\": 1,\n        \"course\": \"Programación en c++\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "getLevelsOfCourses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/levels/course/6254a9ab5c3d21af9774c5ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"levels",
+								"course",
+								"6254a9ab5c3d21af9774c5ef"
+							]
+						},
+						"description": "Consigue todos los niveles de cierto curso."
+					},
+					"response": []
 				}
 			],
 			"description": "Carpeta para todas las solicitudes de la entidad \"Niveles del curso\""
@@ -1917,7 +2007,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/e5a32d14-ca59-4e2e-b7aa-baae75542382",
+							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1926,7 +2016,7 @@
 							"path": [
 								"api",
 								"multimedia",
-								"e5a32d14-ca59-4e2e-b7aa-baae75542382"
+								"622ab8b0db5b476b94fb03b4"
 							]
 						},
 						"description": "Consigue la multimedia que se encuentra con el id indicado."
@@ -2004,7 +2094,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/e5a32d14-ca59-4e2e-b7aa-baae75542382",
+							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2013,7 +2103,7 @@
 							"path": [
 								"api",
 								"multimedia",
-								"e5a32d14-ca59-4e2e-b7aa-baae75542382"
+								"622ab8b0db5b476b94fb03b4"
 							]
 						},
 						"description": "Actualiza la multimedia que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\npath: Que es la ruta donde está almacenada la multimedia.  \ntype: Tipo de multimedia guardada.  \nDescription: Descripción que ha colocado el maestro de la multimedia.  \nlevel: Nivel al cuál pertenece la multimedia\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -2091,7 +2181,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/e5a32d14-ca59-4e2e-b7aa-baae75542382",
+							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2100,7 +2190,7 @@
 							"path": [
 								"api",
 								"multimedia",
-								"e5a32d14-ca59-4e2e-b7aa-baae75542382"
+								"622ab8b0db5b476b94fb03b4"
 							]
 						},
 						"description": "Elimina la multimedia que se encuentra con el id indicado."
@@ -2175,12 +2265,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/progress/",
+							"raw": "http://localhost:4000/api/progress/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"progress",
@@ -2254,7 +2344,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n            \"student\": \"Dykeo Alejandro\",\r\n            \"course\": \"Programación en Kotlin\",\r\n            \"level\": 12\r\n}",
+							"raw": "{\r\n            \"student\": \"Dykeo Alejandro\",\r\n            \"course\": \"Programación en Kotlin\",\r\n            \"level\": \"12\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2262,12 +2352,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/progress/",
+							"raw": "http://localhost:4000/api/progress/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"progress",
@@ -2349,7 +2439,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/progress/d8aee363-e8a4-440c-ba73-476af27c20cd",
+							"raw": "http://localhost:3000/api/progress/622ad430f02f5673bf8d7d67",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2358,7 +2448,7 @@
 							"path": [
 								"api",
 								"progress",
-								"d8aee363-e8a4-440c-ba73-476af27c20cd"
+								"622ad430f02f5673bf8d7d67"
 							]
 						},
 						"description": "Consigue el avance que se encuentra con el id indicado."
@@ -2436,7 +2526,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/progress/d8aee363-e8a4-440c-ba73-476af27c20cd",
+							"raw": "http://localhost:3000/api/progress/622ad430f02f5673bf8d7d67",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2445,7 +2535,7 @@
 							"path": [
 								"api",
 								"progress",
-								"d8aee363-e8a4-440c-ba73-476af27c20cd"
+								"622ad430f02f5673bf8d7d67"
 							]
 						},
 						"description": "Actualiza el avance que se encuentra con el id indicado.\n\nEl parámetro que se envía a través del body es:\n\nlevel: El número del último nivel que el alumno ha visto."
@@ -2523,16 +2613,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/progress/d8aee363-e8a4-440c-ba73-476af27c20cd",
+							"raw": "http://localhost:4000/api/progress/6257b623f8a7bbcabc60a94d",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"progress",
-								"d8aee363-e8a4-440c-ba73-476af27c20cd"
+								"6257b623f8a7bbcabc60a94d"
 							]
 						},
 						"description": "Elimina el avance que se encuentra con el id indicado."
@@ -2607,12 +2697,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/",
+							"raw": "http://localhost:4000/api/purchases/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"purchases",
@@ -2694,12 +2784,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/",
+							"raw": "http://localhost:4000/api/purchases/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"purchases",
@@ -2781,7 +2871,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/5e04df3a-5d00-46e0-b6c6-afc1ea685413",
+							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2790,7 +2880,7 @@
 							"path": [
 								"api",
 								"purchases",
-								"5e04df3a-5d00-46e0-b6c6-afc1ea685413"
+								"622ad5d39c4545507ad19cfc"
 							]
 						},
 						"description": "Consigue la compra que se encuentra con el id indicado."
@@ -2868,7 +2958,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/5e04df3a-5d00-46e0-b6c6-afc1ea685413",
+							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2877,7 +2967,7 @@
 							"path": [
 								"api",
 								"purchases",
-								"5e04df3a-5d00-46e0-b6c6-afc1ea685413"
+								"622ad5d39c4545507ad19cfc"
 							]
 						},
 						"description": "Actualiza la compra que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\nstudent: Que es el nombre del estudiante que compra el curso.  \ncourse: Curso el cuál compra el estudiante.  \nschool: Maestro del curso.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -2955,7 +3045,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/5e04df3a-5d00-46e0-b6c6-afc1ea685413",
+							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2964,7 +3054,7 @@
 							"path": [
 								"api",
 								"purchases",
-								"5e04df3a-5d00-46e0-b6c6-afc1ea685413"
+								"622ad5d39c4545507ad19cfc"
 							]
 						},
 						"description": "Elimina la compra que se encuentra con el id indicado."
@@ -3026,6 +3116,60 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"Se ha eliminado con éxito\",\n    \"data\": {\n        \"idPurchases\": \"5e04df3a-5d00-46e0-b6c6-afc1ea685413\",\n        \"type\": 0,\n        \"student\": \"Nora Norykko\",\n        \"course\": \"Programación en PHP intermedio\",\n        \"school\": \"Alejandro Taboada\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "getPurchaseByUserAndCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student\": \"6257160d4a7c28f690b3f181\",\r\n    \"course\": \"6254a9ab5c3d21af9774c5ef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/purchases/getPurchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"purchases",
+								"getPurchase"
+							]
+						},
+						"description": "Comprueba si hay alguna compra de cierto usuario a cierto curso."
+					},
+					"response": []
+				},
+				{
+					"name": "getPurchaseByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/purchases/purchases/6257160d4a7c28f690b3f181",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"purchases",
+								"purchases",
+								"6257160d4a7c28f690b3f181"
+							]
+						},
+						"description": "Consigue todas las compras que ha hecho cierto usuario."
+					},
+					"response": []
 				}
 			],
 			"description": "Carpeta para todas las solicitudes de la entidad \"Compras\""
@@ -3039,12 +3183,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/",
+							"raw": "http://localhost:4000/api/reviews/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"reviews",
@@ -3126,12 +3270,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/",
+							"raw": "http://localhost:4000/api/reviews/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"reviews",
@@ -3213,16 +3357,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/dc3cef19-842d-4099-a339-bcbf7aac7653",
+							"raw": "http://localhost:4000/api/reviews/62589605f5a2d14f3b16175f",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"reviews",
-								"dc3cef19-842d-4099-a339-bcbf7aac7653"
+								"62589605f5a2d14f3b16175f"
 							]
 						},
 						"description": "Consigue la reseña que se encuentra con el id indicado."
@@ -3300,16 +3444,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/dc3cef19-842d-4099-a339-bcbf7aac7653",
+							"raw": "http://localhost:4000/api/reviews/622ad82f168077089d77f8c2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"reviews",
-								"dc3cef19-842d-4099-a339-bcbf7aac7653"
+								"622ad82f168077089d77f8c2"
 							]
 						},
 						"description": "Actualiza la reseña que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\nlike: Que indica si le gustó el curso; 0 - No y 1 - Sí.  \ncomment: Que es la reseña del usuario.  \nstudent: El nombre del usuario que ha hecho la reseña.  \ncourse: Curso a la cual va dirigida la reseña.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -3387,16 +3531,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/reviews/dc3cef19-842d-4099-a339-bcbf7aac7653",
+							"raw": "http://localhost:4000/api/reviews/62588635a388cc0f1f52877c",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"reviews",
-								"dc3cef19-842d-4099-a339-bcbf7aac7653"
+								"62588635a388cc0f1f52877c"
 							]
 						},
 						"description": "Elimina la reseña que se encuentra con el id indicado."
@@ -3458,6 +3602,29 @@
 							"body": "{\n    \"success\": true,\n    \"message\": \"Se ha eliminado con éxito\",\n    \"data\": {\n        \"idReview\": \"dc3cef19-842d-4099-a339-bcbf7aac7653\",\n        \"like\": 1,\n        \"comment\": \"Muy buen curso, completo y bien explicado, recomendado 100%\",\n        \"student\": \"Ivan Santos\",\n        \"course\": \"Curso de mezcla y mastering\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "getReviewsByCourse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/reviews/reviews/6254a9ab5c3d21af9774c5ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews",
+								"reviews",
+								"6254a9ab5c3d21af9774c5ef"
+							]
+						},
+						"description": "Consigue todas las reseñas de cierto curso."
+					},
+					"response": []
 				}
 			],
 			"description": "Carpeta para todas las solicitudes de la entidad \"Reseñas\""
@@ -3471,12 +3638,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/",
+							"raw": "http://localhost:4000/api/users/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"users",
@@ -3645,16 +3812,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/d12df254-5003-4452-b4ef-a7f422cf548f",
+							"raw": "http://localhost:4000/api/users/6221ab39f35b3b8e71341e85",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"users",
-								"d12df254-5003-4452-b4ef-a7f422cf548f"
+								"6221ab39f35b3b8e71341e85"
 							]
 						},
 						"description": "Consigue el usuario que se encuentra con el id indicado."
@@ -3724,7 +3891,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n            \"name\": \"Aitor Herreda\",\r\n            \"avatar\": \"https://s.mxmcdn.net/images-storage/albums4/3/2/3/8/7/5/38578323_800_800.jpg\",\r\n            \"type\": 0\r\n}",
+							"raw": "{\r\n    \"name\": \"Salinas\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3732,16 +3899,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/d12df254-5003-4452-b4ef-a7f422cf548f",
+							"raw": "http://localhost:4000/api/users/6253be471cd59b1d81b0ec26",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"users",
-								"d12df254-5003-4452-b4ef-a7f422cf548f"
+								"6253be471cd59b1d81b0ec26"
 							]
 						},
 						"description": "Actualiza el usuario que se encuentra con el id indicado.\n\nLos parámetros que se envían a través del body son:\n\nname: Que es el nombre del usuario.  \navatar: Que es la imagen del usuario.  \ntype: Que indica el tipo de usuario que es; 0 - alumno y 1 - escuela.\n\nComo se hace con un método PATCH puede enviarse al menos 1 parámetro."
@@ -3819,16 +3986,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/d12df254-5003-4452-b4ef-a7f422cf548f",
+							"raw": "http://localhost:4000/api/users/6221ab39f35b3b8e71341e85",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"users",
-								"d12df254-5003-4452-b4ef-a7f422cf548f"
+								"6221ab39f35b3b8e71341e85"
 							]
 						},
 						"description": "Elimina el usuario que se encuentra con el id indicado."
