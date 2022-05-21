@@ -16,12 +16,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/categories/",
+							"raw": "http://localhost:4000/api/categories/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"categories",
@@ -103,12 +103,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/",
+							"raw": "http://localhost:4000/api/categories/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"categories",
@@ -190,12 +190,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/categories/622aa68d8a74002e2b69d489",
+							"raw": "http://localhost:4000/api/categories/622aa68d8a74002e2b69d489",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"categories",
@@ -277,12 +277,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/622aab428a74002e2b69d48b",
+							"raw": "http://localhost:4000/api/categories/622aab428a74002e2b69d48b",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"categories",
@@ -364,12 +364,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/categories/622aa68d8a74002e2b69d489",
+							"raw": "http://localhost:4000/api/categories/622aa68d8a74002e2b69d489",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"categories",
@@ -709,12 +709,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/622ab000c0b6621ae0932dc3",
+							"raw": "http://localhost:4000/api/certifications/622ab000c0b6621ae0932dc3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"certifications",
@@ -796,12 +796,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/certifications/622ab000c0b6621ae0932dc3",
+							"raw": "http://localhost:4000/api/certifications/622ab000c0b6621ae0932dc3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"certifications",
@@ -1271,12 +1271,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/courses/622ab27a5b98c7cad9273d7c",
+							"raw": "http://localhost:4000/api/courses/622ab27a5b98c7cad9273d7c",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"courses",
@@ -1726,12 +1726,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/levels/622ab608fff62becbf9c8597",
+							"raw": "http://localhost:4000/api/levels/622ab608fff62becbf9c8597",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"levels",
@@ -1833,12 +1833,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/",
+							"raw": "http://localhost:4000/api/multimedia/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"multimedia",
@@ -1920,12 +1920,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/",
+							"raw": "http://localhost:4000/api/multimedia/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"multimedia",
@@ -2007,12 +2007,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
+							"raw": "http://localhost:4000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"multimedia",
@@ -2094,12 +2094,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
+							"raw": "http://localhost:4000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"multimedia",
@@ -2181,12 +2181,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/multimedia/622ab8b0db5b476b94fb03b4",
+							"raw": "http://localhost:4000/api/multimedia/622ab8b0db5b476b94fb03b4",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"multimedia",
@@ -2439,12 +2439,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/progress/622ad430f02f5673bf8d7d67",
+							"raw": "http://localhost:4000/api/progress/622ad430f02f5673bf8d7d67",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"progress",
@@ -2526,12 +2526,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/progress/622ad430f02f5673bf8d7d67",
+							"raw": "http://localhost:4000/api/progress/622ad430f02f5673bf8d7d67",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"progress",
@@ -2871,12 +2871,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
+							"raw": "http://localhost:4000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"purchases",
@@ -2958,12 +2958,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
+							"raw": "http://localhost:4000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"purchases",
@@ -3045,12 +3045,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/purchases/622ad5d39c4545507ad19cfc",
+							"raw": "http://localhost:4000/api/purchases/622ad5d39c4545507ad19cfc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"purchases",
@@ -3725,12 +3725,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/",
+							"raw": "http://localhost:4000/api/users/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"api",
 								"users",
